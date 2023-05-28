@@ -1,0 +1,16 @@
+{
+  "title": "尋寶",
+  "level": "0",
+  "testdata": [
+    {
+      "input": "",
+      "output": "",
+      "example": true,
+      "testcase_title": ""
+    }
+  ],
+  "statement": "請寫程式控制尋寶機器人，讓機器人能依據尋寶規則找到寶箱。\n尋寶規則：一直往前走尋找寶箱，當在遇到岔路時一定要轉彎走到隔壁條路。",
+  "table": "",
+  "Ncase": "0",
+  "Nexample": "0"
+}

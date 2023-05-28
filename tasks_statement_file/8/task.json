@@ -1,0 +1,16 @@
+{
+  "title": "燈光特效",
+  "level": "0",
+  "testdata": [
+    {
+      "input": "",
+      "output": "",
+      "example": true,
+      "testcase_title": ""
+    }
+  ],
+  "statement": "奇比要參加舞蹈比賽，請寫程式控制舞台燈開關，讓舞台上的燈光按照舞台下方的順序變化。",
+  "table": "",
+  "Ncase": "0",
+  "Nexample": "0"
+}

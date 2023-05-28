@@ -1,0 +1,147 @@
+html *
+{
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html 
+{
+    overflow-y: scroll; 
+}
+
+body {
+    height: 100%;
+    background-color: #fff;
+}
+
+.title
+{
+    color: black;
+    float: left;
+    background-color: aqua; 
+    width: 15%; 
+    border-radius: 10px; 
+    text-align:center; 
+    font-size: 25;
+}
+
+.text 
+{
+    resize: none;
+    float: left;
+    width: 100%;
+    font-size: 22px;
+    text-align: left;
+    border-style:none;
+    outline: none;
+    background:transparent; 
+    color: black;
+    overflow: auto;
+}
+
+.backimg
+{
+    background-repeat: no-repeat; 
+    background-size: contain; 
+    padding: 5%; 
+    width: 100%; 
+}
+
+.workspace 
+{
+    float: left;
+    height: 90%;
+    width: 65%;
+    margin: 20px;
+    margin-top: 0px;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus 
+{
+    outline: none;
+	box-shadow:none;
+}
+
+.column 
+{
+    float: left;
+    width: 30%;
+	height: 90%;
+    border-style:groove;
+    border-color: black; 
+    overflow: hidden;
+}
+
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.btn-circle.btn-xl 
+{
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle 
+{
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.custom-range
+{
+	width:150px;
+}
+
+.flip
+{
+    margin:0px;
+    padding:5px;
+    text-align:center;
+    background: white;
+    cursor:pointer;
+    border-style: solid;
+    border-radius: 8px;
+    border-color: black;
+    font-family:'Arial';
+    margin-top: 5px;
+}
+.panel
+{
+    margin:0px;
+    padding:5px;
+    text-align:center;
+    background: white;
+    border:solid 1px rgb(73, 72, 72);
+    border-radius: 8px;
+    display:none;
+    font-family:'Arial';
+}
+#progressbar {
+    width: 100%;
+    background-color: rgb(127, 120, 120);
+    border-radius: 8px;
+  }
+  
+#bar {
+    width: 0%;
+    height: 32px;
+    border-radius: 8px;
+    background-color: rgb(89, 207, 89);
+}

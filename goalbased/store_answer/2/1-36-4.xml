@@ -1,0 +1,70 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="loop" x="-27" y="-188">
+    <field name="times">2</field>
+    <statement name="code">
+      <block type="move">
+        <field name="num">2</field>
+        <next>
+          <block type="move">
+            <field name="num">2</field>
+            <next>
+              <block type="turn">
+                <field name="value">1</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <next>
+      <block type="move">
+        <field name="num">2</field>
+        <next>
+          <block type="turn">
+            <field name="value">-1</field>
+            <next>
+              <block type="move">
+                <field name="num">2</field>
+                <next>
+                  <block type="move">
+                    <field name="num">2</field>
+                    <next>
+                      <block type="turn">
+                        <field name="value">1</field>
+                        <next>
+                          <block type="move">
+                            <field name="num">2</field>
+                            <next>
+                              <block type="move">
+                                <field name="num">2</field>
+                                <next>
+                                  <block type="turn">
+                                    <field name="value">1</field>
+                                    <next>
+                                      <block type="move">
+                                        <field name="num">2</field>
+                                        <next>
+                                          <block type="turn">
+                                            <field name="value">-1</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,136 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="P:8rb$AOenT5:rRY8V5,">num</variable>
+    <variable type="Var" id="_[lwhOnp!Bq}nkU;q[e_">min</variable>
+    <variable type="Var" id="_V.g?Pp(xMku7o77B,ka">total</variable>
+  </variables>
+  <block type="variables_set" x="240" y="183">
+    <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+    <value name="VALUE">
+      <block type="text_prompt_ext">
+        <mutation type="NUMBER"></mutation>
+        <field name="TYPE">NUMBER</field>
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">num?</field>
+          </shadow>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="_[lwhOnp!Bq}nkU;q[e_" variabletype="Var">min</field>
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="_V.g?Pp(xMku7o77B,ka" variabletype="Var">total</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set">
+                    <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+                    <value name="VALUE">
+                      <block type="text_prompt_ext">
+                        <mutation type="NUMBER"></mutation>
+                        <field name="TYPE">NUMBER</field>
+                        <value name="TEXT">
+                          <shadow type="text">
+                            <field name="TEXT">num?</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_change">
+                        <field name="VAR" id="_V.g?Pp(xMku7o77B,ka" variabletype="Var">total</field>
+                        <value name="DELTA">
+                          <shadow type="math_number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get">
+                            <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_if">
+                            <value name="IF0">
+                              <block type="logic_compare">
+                                <field name="OP">GT</field>
+                                <value name="A">
+                                  <block type="variables_get">
+                                    <field name="VAR" id="_[lwhOnp!Bq}nkU;q[e_" variabletype="Var">min</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="variables_get">
+                                    <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="variables_set">
+                                <field name="VAR" id="_[lwhOnp!Bq}nkU;q[e_" variabletype="Var">min</field>
+                                <value name="VALUE">
+                                  <block type="variables_get">
+                                    <field name="VAR" id="P:8rb$AOenT5:rRY8V5," variabletype="Var">num</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="blockly_print">
+                    <value name="TEXT">
+                      <shadow type="text">
+                        <field name="TEXT">abc</field>
+                      </shadow>
+                      <block type="math_arithmetic">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <shadow type="math_number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get">
+                            <field name="VAR" id="_V.g?Pp(xMku7o77B,ka" variabletype="Var">total</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get">
+                            <field name="VAR" id="_[lwhOnp!Bq}nkU;q[e_" variabletype="Var">min</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

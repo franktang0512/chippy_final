@@ -1,0 +1,77 @@
+.level {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    /* border: 3px solid #8BBA29; */
+}
+.icon {
+    width:50%;
+    height:50%;
+}
+/* #icon {
+    width:50%;
+    height: 50%;
+} */
+.tasks a {
+    text-decoration-line: none;
+    color: black;
+}
+.tasks a:visited {
+    color: black;
+}
+.tasks a:hover {
+    text-decoration-line: none;
+    color: black;
+}
+.tasks {
+    width:70%;
+    margin-left: 15%;
+    text-align: center;
+    text-decoration-color: black;
+}
+.task h3 {
+    text-align: center;
+    font-weight: bold;
+}
+.tasks:hover{
+    background-color: #FFF1EB;
+    border: 3px solid #E8A088;
+}
+.button {
+    background-color: #4CAF50;
+    border: #4cAF52;
+    color: white;
+    padding: 10px 24px;
+    /* float: right; */
+    display: inline;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    margin-top: 2%;
+    margin-left: 80%;
+    margin-right: 20%;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: #367C39;
+    /* border: 1px solid #71C64C; */
+}
+#correct {
+    background: #1474FF;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: 12px;
+}
+
+.evenrow {
+    background-color: #C1DDE8;
+}
+
+.oddrow {
+    background-color: #f9fcff;
+}

@@ -1,0 +1,41 @@
+{
+  "title": "血壓計",
+  "statement": "血壓收縮壓超過120mmHg(含)，或舒張壓超過80mmHg(含)表示可能罹患高血壓。\n請設計血壓計，在測量收縮壓與舒張壓後，顯示「正常血壓」、「收縮壓過高」、「舒張壓過高」或「收縮壓與舒張壓過高」。",
+  "table": "",
+  "Ncase": "6",
+  "Nexample": "1",
+  "level": "2",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "120 75",
+      "output": "收縮壓過高",
+      "testcase_title": "範例一"
+    },
+    {
+      "input": "110 79",
+      "output": "正常血壓",
+      "testcase_title": "正常血壓的情況"
+    },
+    {
+      "input": "100 75",
+      "output": "正常血壓",
+      "testcase_title": "正常血壓的情況"
+    },
+    {
+      "input": "110 80",
+      "output": "舒張壓過高",
+      "testcase_title": "高血壓的情況(舒張壓過高)"
+    },
+    {
+      "input": "120 75",
+      "output": "收縮壓過高",
+      "testcase_title": "高血壓的情況(收縮壓過高)"
+    },
+    {
+      "input": "134 90",
+      "output": "收縮壓與舒張壓過高",
+      "testcase_title": "高血壓的情況(收縮壓與舒張壓過高)"
+    }
+  ]
+}

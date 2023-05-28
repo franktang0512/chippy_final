@@ -1,0 +1,9 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="print" x="483" y="233">
+    <value name="TEXT">
+      <shadow type="text_s">
+        <field name="TEXT">正常血壓</field>
+      </shadow>
+    </value>
+  </block>
+</xml>

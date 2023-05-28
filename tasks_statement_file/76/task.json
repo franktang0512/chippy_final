@@ -1,0 +1,31 @@
+{
+  "title": "籃球比賽",
+  "statement": "班上同學分為A、B兩隊進行籃球比賽，先進3球的隊伍獲勝。\n請設計自動計分器，判斷獲勝的隊伍。\n",
+  "table": "",
+  "Ncase": "4",
+  "Nexample": "1",
+  "level": "6",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "A B B A A",
+      "output": "A隊獲勝",
+      "testcase_title": "範例一"
+    },
+    {
+      "input": "A A A",
+      "output": "A隊獲勝",
+      "testcase_title": "A隊獲勝的情況"
+    },
+    {
+      "input": "A B B A A",
+      "output": "A隊獲勝",
+      "testcase_title": "A隊獲勝的情況"
+    },
+    {
+      "input": "B B A A B",
+      "output": "B隊獲勝",
+      "testcase_title": "B隊獲勝的情況"
+    }
+  ]
+}

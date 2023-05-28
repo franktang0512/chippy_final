@@ -1,0 +1,268 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="]W[{BNyfwb3T@,9Oj{0p">total</variable>
+    <variable type="Var" id="`lX2;EC/#pFgqY4z(VRO">num</variable>
+  </variables>
+  <block type="variables_set" x="115" y="35">
+    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+    <value name="VALUE">
+      <block type="math_number">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+        <value name="VALUE">
+          <block type="text_prompt_ext">
+            <mutation type="NUMBER"></mutation>
+            <field name="TYPE">NUMBER</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_whileUntil">
+            <field name="MODE">WHILE</field>
+            <value name="BOOL">
+              <block type="logic_compare">
+                <field name="OP">NEQ</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">-1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if">
+                <mutation elseif="6" else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">500</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">50</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF2">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO2">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">150</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF3">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">4</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO3">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">250</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF4">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO4">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">150</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF5">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">6</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO5">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">100</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <value name="IF6">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">7</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO6">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">350</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="variables_change">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">1500</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="`lX2;EC/#pFgqY4z(VRO" variabletype="Var">num</field>
+                    <value name="VALUE">
+                      <block type="text_prompt_ext">
+                        <mutation type="NUMBER"></mutation>
+                        <field name="TYPE">NUMBER</field>
+                        <value name="TEXT">
+                          <shadow type="text">
+                            <field name="TEXT">abc</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="blockly_print">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">abc</field>
+                  </shadow>
+                  <block type="variables_get">
+                    <field name="VAR" id="]W[{BNyfwb3T@,9Oj{0p" variabletype="Var">total</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

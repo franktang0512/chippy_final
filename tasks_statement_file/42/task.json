@@ -1,0 +1,51 @@
+{
+  "title": "超速罰款",
+  "statement": "高速公路上的超速照相罰款計費標準如下：\n\n小型車合法最高速限為100公里(含)，\n超速1~20公里，罰3000元；\n超速21~40公里，罰3500元；\n超速41~60公里，罰5000元；\n超速61~80公里，罰8000元；\n超速81公里以上，開罰12000元。\n\n請設計罰款計算機，輸入測得的行駛速度後，計算需要繳納的罰款。\n",
+  "table": "",
+  "Ncase": "8",
+  "Nexample": "2",
+  "level": "5",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "119",
+      "output": "3000",
+      "testcase_title": "範例一"
+    },
+    {
+      "input": "100",
+      "output": "0",
+      "testcase_title": "範例二"
+    },
+    {
+      "input": "100",
+      "output": "0",
+      "testcase_title": "未超速的形況"
+    },
+    {
+      "input": "119",
+      "output": "3000",
+      "testcase_title": "超速1~20公里的情況"
+    },
+    {
+      "input": "134",
+      "output": "3500",
+      "testcase_title": "超速21~40公里的情況"
+    },
+    {
+      "input": "155",
+      "output": "5000",
+      "testcase_title": "超速41~60公里的情況"
+    },
+    {
+      "input": "169",
+      "output": "8000",
+      "testcase_title": "超速61~80公里的情況"
+    },
+    {
+      "input": "192",
+      "output": "12000",
+      "testcase_title": "超速81公里以上的情況"
+    }
+  ]
+}

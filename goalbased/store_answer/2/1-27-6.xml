@@ -1,0 +1,219 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="TvTd%,Jr@hD[/nhk,WJF">1</variable>
+    <variable type="Var" id="@nAaD{B|mo?){:%tSC`M">2</variable>
+  </variables>
+  <block type="start" x="140" y="27">
+    <next>
+      <block type="ask">
+        <value name="question">
+          <shadow type="text_s">
+            <field name="TEXT">收縮</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="set">
+            <field name="VAR" id="TvTd%,Jr@hD[/nhk,WJF" variabletype="Var">1</field>
+            <value name="VALUE">
+              <shadow type="text_s">
+                <field name="TEXT">0</field>
+              </shadow>
+              <block type="answer"></block>
+            </value>
+            <next>
+              <block type="ask">
+                <value name="question">
+                  <shadow type="text_s">
+                    <field name="TEXT">舒張</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="set">
+                    <field name="VAR" id="@nAaD{B|mo?){:%tSC`M" variabletype="Var">2</field>
+                    <value name="VALUE">
+                      <shadow type="text_s">
+                        <field name="TEXT">0</field>
+                      </shadow>
+                      <block type="answer"></block>
+                    </value>
+                    <next>
+                      <block type="ifelse">
+                        <value name="IF0">
+                          <block type="operation">
+                            <field name="OP">AND</field>
+                            <value name="A">
+                              <block type="compare">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="get">
+                                    <field name="VAR" id="TvTd%,Jr@hD[/nhk,WJF" variabletype="Var">1</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">120</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="compare">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="get">
+                                    <field name="VAR" id="@nAaD{B|mo?){:%tSC`M" variabletype="Var">2</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">80</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="print">
+                            <value name="TEXT">
+                              <shadow type="text_s">
+                                <field name="TEXT">正常血壓</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="ifelse">
+                            <value name="IF0">
+                              <block type="operation">
+                                <field name="OP">AND</field>
+                                <value name="A">
+                                  <block type="compare">
+                                    <field name="OP">GTE</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM"></field>
+                                      </shadow>
+                                      <block type="get">
+                                        <field name="VAR" id="TvTd%,Jr@hD[/nhk,WJF" variabletype="Var">1</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">120</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <block type="compare">
+                                    <field name="OP">LT</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM"></field>
+                                      </shadow>
+                                      <block type="get">
+                                        <field name="VAR" id="@nAaD{B|mo?){:%tSC`M" variabletype="Var">2</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">80</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="print">
+                                <value name="TEXT">
+                                  <shadow type="text_s">
+                                    <field name="TEXT">收縮壓過高</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="ifelse">
+                                <value name="IF0">
+                                  <block type="operation">
+                                    <field name="OP">AND</field>
+                                    <value name="A">
+                                      <block type="compare">
+                                        <field name="OP">LT</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM"></field>
+                                          </shadow>
+                                          <block type="get">
+                                            <field name="VAR" id="TvTd%,Jr@hD[/nhk,WJF" variabletype="Var">1</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">120</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <block type="compare">
+                                        <field name="OP">GTE</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM"></field>
+                                          </shadow>
+                                          <block type="get">
+                                            <field name="VAR" id="@nAaD{B|mo?){:%tSC`M" variabletype="Var">2</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">80</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <statement name="DO0">
+                                  <block type="print">
+                                    <value name="TEXT">
+                                      <shadow type="text_s">
+                                        <field name="TEXT">舒張壓過高</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </statement>
+                                <statement name="ELSE">
+                                  <block type="print">
+                                    <value name="TEXT">
+                                      <shadow type="text_s">
+                                        <field name="TEXT">收縮壓與舒張壓過高</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </statement>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

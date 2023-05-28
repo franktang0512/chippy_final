@@ -1,0 +1,392 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="start" x="161" y="3">
+    <next>
+      <block type="ask">
+        <value name="question">
+          <shadow type="text_s">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+        <next>
+          <block type="ifelse">
+            <value name="IF0">
+              <block type="compare">
+                <field name="OP">LTE</field>
+                <value name="A">
+                  <shadow type="number">
+                    <field name="NUM"></field>
+                  </shadow>
+                  <block type="answer"></block>
+                </value>
+                <value name="B">
+                  <shadow type="number">
+                    <field name="NUM">120</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="print">
+                <value name="TEXT">
+                  <shadow type="text_s">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="round">
+                    <field name="OP">ROUND</field>
+                    <value name="NUM">
+                      <shadow type="math_number">
+                        <field name="NUM">3.1</field>
+                      </shadow>
+                      <block type="arithmetic">
+                        <field name="OP">MULTIPLY</field>
+                        <value name="A">
+                          <shadow type="number">
+                            <field name="NUM"></field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <value name="B">
+                          <shadow type="number">
+                            <field name="NUM">1.63</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="ifelse">
+                <value name="IF0">
+                  <block type="compare">
+                    <field name="OP">LTE</field>
+                    <value name="A">
+                      <shadow type="number">
+                        <field name="NUM"></field>
+                      </shadow>
+                      <block type="answer"></block>
+                    </value>
+                    <value name="B">
+                      <shadow type="number">
+                        <field name="NUM">330</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="print">
+                    <value name="TEXT">
+                      <shadow type="text_s">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="round">
+                        <field name="OP">ROUND</field>
+                        <value name="NUM">
+                          <shadow type="math_number">
+                            <field name="NUM">3.1</field>
+                          </shadow>
+                          <block type="arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A">
+                              <shadow type="number">
+                                <field name="NUM"></field>
+                              </shadow>
+                              <block type="arithmetic">
+                                <field name="OP">MULTIPLY</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM">120</field>
+                                  </shadow>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">1.63</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="number">
+                                <field name="NUM">50</field>
+                              </shadow>
+                              <block type="arithmetic">
+                                <field name="OP">MULTIPLY</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="arithmetic">
+                                    <field name="OP">MINUS</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM"></field>
+                                      </shadow>
+                                      <block type="answer"></block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">120</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">2.1</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="ifelse">
+                    <value name="IF0">
+                      <block type="compare">
+                        <field name="OP">LTE</field>
+                        <value name="A">
+                          <shadow type="number">
+                            <field name="NUM"></field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <value name="B">
+                          <shadow type="number">
+                            <field name="NUM">500</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="round">
+                            <field name="OP">ROUND</field>
+                            <value name="NUM">
+                              <shadow type="math_number">
+                                <field name="NUM">3.1</field>
+                              </shadow>
+                              <block type="arithmetic">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="arithmetic">
+                                    <field name="OP">MULTIPLY</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM">120</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">1.63</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">50</field>
+                                  </shadow>
+                                  <block type="arithmetic">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM"></field>
+                                      </shadow>
+                                      <block type="arithmetic">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM">210</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">2.1</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">50</field>
+                                      </shadow>
+                                      <block type="arithmetic">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM"></field>
+                                          </shadow>
+                                          <block type="arithmetic">
+                                            <field name="OP">MINUS</field>
+                                            <value name="A">
+                                              <shadow type="number">
+                                                <field name="NUM"></field>
+                                              </shadow>
+                                              <block type="answer"></block>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="number">
+                                                <field name="NUM">330</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">2.89</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="round">
+                            <field name="OP">ROUND</field>
+                            <value name="NUM">
+                              <shadow type="math_number">
+                                <field name="NUM">3.1</field>
+                              </shadow>
+                              <block type="arithmetic">
+                                <field name="OP">ADD</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="arithmetic">
+                                    <field name="OP">MULTIPLY</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM">120</field>
+                                      </shadow>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">1.63</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">50</field>
+                                  </shadow>
+                                  <block type="arithmetic">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM"></field>
+                                      </shadow>
+                                      <block type="arithmetic">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM">210</field>
+                                          </shadow>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">2.1</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">50</field>
+                                      </shadow>
+                                      <block type="arithmetic">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM"></field>
+                                          </shadow>
+                                          <block type="arithmetic">
+                                            <field name="OP">MULTIPLY</field>
+                                            <value name="A">
+                                              <shadow type="number">
+                                                <field name="NUM">200</field>
+                                              </shadow>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="number">
+                                                <field name="NUM">2.89</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">50</field>
+                                          </shadow>
+                                          <block type="arithmetic">
+                                            <field name="OP">MULTIPLY</field>
+                                            <value name="A">
+                                              <shadow type="number">
+                                                <field name="NUM"></field>
+                                              </shadow>
+                                              <block type="arithmetic">
+                                                <field name="OP">MINUS</field>
+                                                <value name="A">
+                                                  <shadow type="number">
+                                                    <field name="NUM"></field>
+                                                  </shadow>
+                                                  <block type="answer"></block>
+                                                </value>
+                                                <value name="B">
+                                                  <shadow type="number">
+                                                    <field name="NUM">500</field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="number">
+                                                <field name="NUM">3.94</field>
+                                              </shadow>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

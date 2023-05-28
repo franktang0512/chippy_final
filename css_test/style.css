@@ -1,0 +1,81 @@
+html *
+{
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html 
+{
+    overflow-y: scroll; 
+}
+
+
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus 
+{
+    outline: none;
+	box-shadow:none;
+}
+
+.column-right 
+{
+    float: left;
+    width: 50%;
+	height: 100vh;
+}
+
+.column-left 
+{
+    float: left;
+    width: 40%;
+	height: 100vh;
+}
+
+.namelist {
+    background-color:#E6F7FF;
+    width: 10%;
+	height: 100vh;
+}
+
+.row:after 
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.btn-circle.btn-xl 
+{
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    border-radius: 35px;
+    font-size: 24px;
+    line-height: 1.33;
+}
+
+.btn-circle 
+{
+    width: 30px;
+    height: 30px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+
+.custom-range
+{
+	width:150px;
+}
+
+.studentlists {
+  height: 90vh;
+  width: 10%;
+  background-color: #E6F7FF;
+  overflow: auto;
+}

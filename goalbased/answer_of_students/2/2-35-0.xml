@@ -1,0 +1,136 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="l {0irS_g ?Qh,Fkp[k0">A</variable>
+    <variable type="Var" id="M9v54*WeE!n^1/i@m3o2">min</variable>
+    <variable type="Var" id=".~M_L`36@NLzH{AU|#f.">total</variable>
+  </variables>
+  <block type="variables_set" x="205" y="93">
+    <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+    <value name="VALUE">
+      <block type="text_prompt_ext">
+        <mutation type="NUMBER"></mutation>
+        <field name="TYPE">NUMBER</field>
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="M9v54*WeE!n^1/i@m3o2" variabletype="Var">min</field>
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id=".~M_L`36@NLzH{AU|#f." variabletype="Var">total</field>
+            <value name="VALUE">
+              <block type="variables_get">
+                <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_repeat_ext">
+                <value name="TIMES">
+                  <shadow type="math_number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set">
+                    <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+                    <value name="VALUE">
+                      <block type="text_prompt_ext">
+                        <mutation type="NUMBER"></mutation>
+                        <field name="TYPE">NUMBER</field>
+                        <value name="TEXT">
+                          <shadow type="text">
+                            <field name="TEXT">abc</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_if">
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">LT</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="variables_get">
+                                <field name="VAR" id="M9v54*WeE!n^1/i@m3o2" variabletype="Var">min</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="variables_set">
+                            <field name="VAR" id="M9v54*WeE!n^1/i@m3o2" variabletype="Var">min</field>
+                            <value name="VALUE">
+                              <block type="variables_get">
+                                <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="variables_change">
+                            <field name="VAR" id=".~M_L`36@NLzH{AU|#f." variabletype="Var">total</field>
+                            <value name="DELTA">
+                              <shadow type="math_number">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="variables_get">
+                                <field name="VAR" id="l {0irS_g ?Qh,Fkp[k0" variabletype="Var">A</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="blockly_print">
+                    <value name="TEXT">
+                      <shadow type="text">
+                        <field name="TEXT">abc</field>
+                      </shadow>
+                      <block type="math_arithmetic">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <shadow type="math_number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get">
+                            <field name="VAR" id=".~M_L`36@NLzH{AU|#f." variabletype="Var">total</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="math_number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="variables_get">
+                            <field name="VAR" id="M9v54*WeE!n^1/i@m3o2" variabletype="Var">min</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

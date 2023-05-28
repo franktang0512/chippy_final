@@ -1,0 +1,55 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="change_ship" x="-264" y="-356">
+    <field name="chan">1</field>
+    <next>
+      <block type="change_ship">
+        <field name="chan">0</field>
+        <next>
+          <block type="change_ship">
+            <field name="chan">-1</field>
+            <next>
+              <block type="loop_scratch">
+                <field name="times">2</field>
+                <statement name="code">
+                  <block type="loop_scratch">
+                    <field name="times">9</field>
+                    <statement name="code">
+                      <block type="change_ship">
+                        <field name="chan">0</field>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="change_ship">
+                    <field name="chan">0</field>
+                    <next>
+                      <block type="change_ship">
+                        <field name="chan">-1</field>
+                        <next>
+                          <block type="loop_scratch">
+                            <field name="times">10</field>
+                            <statement name="code">
+                              <block type="change_ship">
+                                <field name="chan">0</field>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="change_ship">
+                                <field name="chan">-1</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

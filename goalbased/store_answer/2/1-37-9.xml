@@ -1,0 +1,48 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="loop_scratch" x="-198" y="-412">
+    <field name="times">2</field>
+    <statement name="code">
+      <block type="loop_scratch">
+        <field name="times">3</field>
+        <statement name="code">
+          <block type="change_ship">
+            <field name="chan">0</field>
+            <next>
+              <block type="change_ship">
+                <field name="chan">1</field>
+                <next>
+                  <block type="change_ship">
+                    <field name="chan">-1</field>
+                    <next>
+                      <block type="change_ship">
+                        <field name="chan">-1</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <next>
+      <block type="change_ship">
+        <field name="chan">0</field>
+        <next>
+          <block type="change_ship">
+            <field name="chan">0</field>
+            <next>
+              <block type="change_ship">
+                <field name="chan">-1</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="change_ship" x="268" y="202">
+    <field name="chan">1</field>
+  </block>
+</xml>

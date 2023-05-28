@@ -1,0 +1,129 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="KvWG)Htr,OHIq0Qn=D:;">指數</variable>
+  </variables>
+  <block type="variables_set" x="331" y="157">
+    <field name="VAR" id="KvWG)Htr,OHIq0Qn=D:;" variabletype="Var">指數</field>
+    <value name="VALUE">
+      <block type="text_prompt_ext">
+        <mutation type="NUMBER"></mutation>
+        <field name="TYPE">NUMBER</field>
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">指數</field>
+          </shadow>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="controls_if">
+        <mutation elseif="3" else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR" id="KvWG)Htr,OHIq0Qn=D:;" variabletype="Var">指數</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">2</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="blockly_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">低量級</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR" id="KvWG)Htr,OHIq0Qn=D:;" variabletype="Var">指數</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">5</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="blockly_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">中量級</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <value name="IF2">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR" id="KvWG)Htr,OHIq0Qn=D:;" variabletype="Var">指數</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">7</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO2">
+          <block type="blockly_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">高量級</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <value name="IF3">
+          <block type="logic_compare">
+            <field name="OP">LTE</field>
+            <value name="A">
+              <block type="variables_get">
+                <field name="VAR" id="KvWG)Htr,OHIq0Qn=D:;" variabletype="Var">指數</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO3">
+          <block type="blockly_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">過量級</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="blockly_print">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">危險級</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,26 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="controls_whileUntil" x="-243" y="-231">
+    <field name="MODE">UNTIL</field>
+    <value name="BOOL">
+      <block type="isBackToSpace"></block>
+    </value>
+    <statement name="DO">
+      <block type="controls_if">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="detectObstacle"></block>
+        </value>
+        <statement name="DO0">
+          <block type="turn">
+            <field name="value">-1</field>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="move">
+            <field name="num">1</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

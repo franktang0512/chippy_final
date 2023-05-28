@@ -1,0 +1,65 @@
+{
+  "title": "豆花店",
+  "level": "8",
+  "testdata": [
+    {
+      "output": "40",
+      "testcase_title": "範例一",
+      "input": "2\n3\n7"
+    },
+    {
+      "output": "50",
+      "testcase_title": "範例二",
+      "input": "2\n2\n2"
+    },
+    {
+      "output": "65",
+      "testcase_title": "範例三",
+      "input": "4\n1\n2\n4\n6"
+    },
+    {
+      "output": "25",
+      "testcase_title": "未加配料的情況",
+      "input": "0"
+    },
+    {
+      "output": "45",
+      "testcase_title": "另加1~3種配料的情況",
+      "input": "1\n6"
+    },
+    {
+      "output": "40",
+      "testcase_title": "另加1~3種配料的情況",
+      "input": "2\n3 7"
+    },
+    {
+      "output": "50",
+      "testcase_title": "另加1~3種配料的情況",
+      "input": "3\n2 6 7"
+    },
+    {
+      "output": "65",
+      "testcase_title": "另加4~6種配料的情況",
+      "input": "4\n1 2 4 6"
+    },
+    {
+      "input": "5\n1 7 7 7 7",
+      "output": "55",
+      "testcase_title": "另加4~6種配料的情況"
+    },
+    {
+      "input": "6\n1 2 3 4 5 6",
+      "output": "65",
+      "testcase_title": "另加4~6種配料的情況"
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": ""
+    }
+  ],
+  "statement": "白豆花一碗25元，最多可另加6種配料，配料價錢如表所示。若加1~3種配料，最多只加收25元；若加4~6種配料，最多只加收40元。\n\n給定配料的數量及種類，輸出每碗豆花的實收金額。",
+  "table": "[\n\t[\"編號\", \"配料\", \"價錢(元)\"],\n\t[\"1\", \"波霸\", \"10\"],\n\t[\"2\", \"雙Q\", \"15\"],\n\t[\"3\", \"芋圓\", \"10\"],\n\t[\"4\", \"仙草\", \"10\"],\n\t[\"5\", \"布丁\", \"10\"],\n\t[\"6\", \"寒天\", \"20\"],\n\t[\"7\", \"椰果\", \"5\"]\n]",
+  "Ncase": 10,
+  "Nexample": "3"
+}

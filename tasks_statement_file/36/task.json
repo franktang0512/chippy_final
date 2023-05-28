@@ -1,0 +1,25 @@
+{
+  "title": "測試一",
+  "statement": "測試一",
+  "table": "",
+  "Ncase": "3",
+  "Nexample": "2",
+  "level": "4",
+  "testdata": [
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": "測試範例"
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": "測試範例"
+    },
+    {
+      "input": "6",
+      "output": "5",
+      "testcase_title": "333"
+    }
+  ]
+}

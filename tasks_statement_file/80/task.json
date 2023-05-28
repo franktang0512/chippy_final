@@ -1,0 +1,36 @@
+{
+  "title": "買三送一",
+  "statement": "咖啡店舉辦買三送一優惠活動，最便宜的那杯免費。\n請寫收銀機程式，在輸入四杯咖啡的價錢後，計算應收金額。\n",
+  "table": "",
+  "Ncase": "5",
+  "Nexample": "1",
+  "level": "10",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "100 120 70 95",
+      "output": "315",
+      "testcase_title": "範例一"
+    },
+    {
+      "input": "85 120 100 100",
+      "output": "320",
+      "testcase_title": "第一杯飲料免費的情況"
+    },
+    {
+      "input": "150 90 135 160",
+      "output": "445",
+      "testcase_title": "第二杯飲料免費的情況"
+    },
+    {
+      "input": "100 120 70 95",
+      "output": "315",
+      "testcase_title": "第三杯飲料免費的情況"
+    },
+    {
+      "input": "180 160 140 100",
+      "output": "480",
+      "testcase_title": "第四杯飲料免費的情況"
+    }
+  ]
+}

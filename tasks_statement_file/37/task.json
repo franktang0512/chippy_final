@@ -1,0 +1,32 @@
+{
+  "title": "測試二",
+  "statement": "測試二",
+  "table": "",
+  "Ncase": "4",
+  "Nexample": "1",
+  "level": "6",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "a,a,a,a,a",
+      "output": "34",
+      "example": true,
+      "testcase_title": "範例"
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": ""
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": ""
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": ""
+    }
+  ]
+}

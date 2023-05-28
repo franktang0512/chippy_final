@@ -1,0 +1,20 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="List" id=";�`A[{=#X4[=mA -xt">商品</variable>
+  </variables>
+  <block type="start" x="484" y="60">
+    <next>
+      <block type="add_list">
+        <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+        <value name="VALUE">
+          <shadow type="text_s">
+            <field name="TEXT">thing</field>
+          </shadow>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="removeAll_list" x="7" y="230">
+    <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+  </block>
+</xml>

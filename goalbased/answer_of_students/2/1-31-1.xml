@@ -1,0 +1,148 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="m~F01!k_EkL4 IY)0h,3">B</variable>
+    <variable type="Var" id="aCUu;X(8vL,;J~X/!J5s">A</variable>
+  </variables>
+  <block type="ask" x="67" y="145">
+    <value name="question">
+      <shadow type="text_s">
+        <field name="TEXT"></field>
+      </shadow>
+    </value>
+    <next>
+      <block type="whileuntil">
+        <field name="MODE">UNTIL</field>
+        <value name="BOOL">
+          <block type="operation">
+            <field name="OP">OR</field>
+            <value name="A">
+              <block type="compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <shadow type="number">
+                    <field name="NUM"></field>
+                  </shadow>
+                  <block type="get">
+                    <field name="VAR" id="aCUu;X(8vL,;J~X/!J5s" variabletype="Var">A</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <shadow type="number">
+                    <field name="NUM"></field>
+                  </shadow>
+                  <block type="get">
+                    <field name="VAR" id="m~F01!k_EkL4 IY)0h,3" variabletype="Var">B</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="ifelse">
+            <value name="IF0">
+              <block type="compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <shadow type="number">
+                    <field name="NUM"></field>
+                  </shadow>
+                  <block type="answer"></block>
+                </value>
+                <value name="B">
+                  <shadow type="number">
+                    <field name="NUM">A</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="change">
+                <field name="VAR" id="aCUu;X(8vL,;J~X/!J5s" variabletype="Var">A</field>
+                <value name="DELTA">
+                  <shadow type="number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="change">
+                <field name="VAR" id="m~F01!k_EkL4 IY)0h,3" variabletype="Var">B</field>
+                <value name="DELTA">
+                  <shadow type="number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="ask">
+                <value name="question">
+                  <shadow type="text_s">
+                    <field name="TEXT"></field>
+                  </shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="ifelse">
+            <value name="IF0">
+              <block type="compare">
+                <field name="OP">GTE</field>
+                <value name="A">
+                  <shadow type="number">
+                    <field name="NUM"></field>
+                  </shadow>
+                  <block type="get">
+                    <field name="VAR" id="aCUu;X(8vL,;J~X/!J5s" variabletype="Var">A</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="print">
+                <value name="TEXT">
+                  <shadow type="text_s">
+                    <field name="TEXT">A隊獲勝</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="print">
+                <value name="TEXT">
+                  <shadow type="text_s">
+                    <field name="TEXT">B隊獲勝</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

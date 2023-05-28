@@ -1,0 +1,180 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="List" id="z?GXCbaD~0F)3NIhFiQl">商品</variable>
+    <variable type="Var" id="[npgKlW/:?d7[SMBskw}">總</variable>
+  </variables>
+  <block type="start" x="484" y="60">
+    <next>
+      <block type="removeAll_list">
+        <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+        <next>
+          <block type="add_list">
+            <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+            <value name="VALUE">
+              <shadow type="text_s">
+                <field name="TEXT">500</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="add_list">
+                <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                <value name="VALUE">
+                  <shadow type="text_s">
+                    <field name="TEXT">50</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="add_list">
+                    <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                    <value name="VALUE">
+                      <shadow type="text_s">
+                        <field name="TEXT">150</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="add_list">
+                        <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                        <value name="VALUE">
+                          <shadow type="text_s">
+                            <field name="TEXT">250</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="add_list">
+                            <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                            <value name="VALUE">
+                              <shadow type="text_s">
+                                <field name="TEXT">150</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="add_list">
+                                <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                                <value name="VALUE">
+                                  <shadow type="text_s">
+                                    <field name="TEXT">100</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="add_list">
+                                    <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                                    <value name="VALUE">
+                                      <shadow type="text_s">
+                                        <field name="TEXT">350</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="add_list">
+                                        <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                                        <value name="VALUE">
+                                          <shadow type="text_s">
+                                            <field name="TEXT">1500</field>
+                                          </shadow>
+                                        </value>
+                                        <next>
+                                          <block type="set">
+                                            <field name="VAR" id="[npgKlW/:?d7[SMBskw}" variabletype="Var">總</field>
+                                            <value name="VALUE">
+                                              <shadow type="text_s">
+                                                <field name="TEXT">0</field>
+                                              </shadow>
+                                            </value>
+                                            <next>
+                                              <block type="ask">
+                                                <value name="question">
+                                                  <shadow type="text_s">
+                                                    <field name="TEXT"></field>
+                                                  </shadow>
+                                                </value>
+                                                <next>
+                                                  <block type="whileuntil">
+                                                    <field name="MODE">UNTIL</field>
+                                                    <value name="BOOL">
+                                                      <block type="compare">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <shadow type="text_s">
+                                                            <field name="TEXT"></field>
+                                                          </shadow>
+                                                          <block type="answer"></block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <shadow type="text_s">
+                                                            <field name="TEXT">-1</field>
+                                                          </shadow>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO">
+                                                      <block type="change">
+                                                        <field name="VAR" id="[npgKlW/:?d7[SMBskw}" variabletype="Var">總</field>
+                                                        <value name="DELTA">
+                                                          <shadow type="number">
+                                                            <field name="NUM">1</field>
+                                                          </shadow>
+                                                          <block type="getIndex_list">
+                                                            <field name="LIST" id="z?GXCbaD~0F)3NIhFiQl" variabletype="List">商品</field>
+                                                            <value name="AT">
+                                                              <shadow type="math_number">
+                                                                <field name="NUM">1</field>
+                                                              </shadow>
+                                                              <block type="answer"></block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="ask">
+                                                            <value name="question">
+                                                              <shadow type="text_s">
+                                                                <field name="TEXT"></field>
+                                                              </shadow>
+                                                            </value>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                    <next>
+                                                      <block type="print">
+                                                        <value name="TEXT">
+                                                          <shadow type="text_s">
+                                                            <field name="TEXT"></field>
+                                                          </shadow>
+                                                          <block type="get">
+                                                            <field name="VAR" id="[npgKlW/:?d7[SMBskw}" variabletype="Var">總</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="print" x="256" y="477">
+    <value name="TEXT">
+      <shadow type="text_s">
+        <field name="TEXT">A</field>
+      </shadow>
+    </value>
+  </block>
+</xml>

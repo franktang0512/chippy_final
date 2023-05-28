@@ -1,0 +1,150 @@
+* {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-image: url("../img/banner-bule-M.png");
+    background-repeat: repeat;
+    background-color: #f9fcff;
+  }
+  
+  .canvas-bg 
+  {
+      background-color: white;
+  }
+  
+  .navbar-bg {
+      background-color: #103B7D;
+      color: white;
+  }
+  
+  .navbar-brand {
+      color: white;
+  }
+  .navbar-nav a {
+      text-decoration-line: none;
+      color: white;
+  }
+  .navbar-nav a:visited {
+      color: white;
+  }
+  .navbar-nav a:hover {
+      text-decoration-line: none;
+      color: white;
+  }
+  
+  .footer-bg {
+      background-color: #103B7D;
+      color: #fff;
+  }
+  
+  .header {
+      text-align: center;
+  }
+  .question-goal {
+      background-color:#C1DDE8;
+      overflow: auto; 
+      height: 3.5rem; 
+      font-size: 1.25rem;
+      border-radius: 0.5rem; 
+  }
+  
+  .question-problem {
+      background-color:#C1DDE8;
+      overflow: scroll; 
+      height: 10rem; 
+      font-size: 1.25rem;
+      border-radius: 0.5rem; 
+  }
+  
+  #title {
+      color: black;
+      margin: auto;
+      font-size: xx-large;
+      background-color: #84E5E8;
+      border-radius: 5em;
+      padding-left: 2em;
+      padding-right: 2em;
+  }
+  
+  #send {
+      position: relative;
+  }
+  
+  .testcase {
+      position: relative;
+  }
+  
+  .feedback {
+      position: absolute;
+      display: none;
+      color: black;
+      z-index: 100;
+      /* background-color: #FFF9D9; */
+      border: 1px solid #aaa;
+      /* padding: 1rem; */
+      border-radius: 1rem;
+  }
+  
+  .feedbackmessage:hover + .feedback {
+      display: block;
+  }
+  
+  #fade {
+      display: none;
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 1001;
+      -moz-opacity: 0.8;
+      opacity: .80;
+      filter: alpha(opacity=80);
+    }
+    
+    #light {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      max-width: 800px;
+      max-height: 360px;
+      margin-left: -900px;
+      margin-top: -50px;
+      border: 2px solid #FFF;
+      background: #FFF;
+      z-index: 1002;
+      overflow: visible;
+    }
+    
+    #boxclose {
+      float: right;
+      cursor: pointer;
+      color: #fff;
+      border: 1px solid #AEAEAE;
+      border-radius: 3px;
+      background: #222222;
+      font-size: 31px;
+      font-weight: bold;
+      display: inline-block;
+      line-height: 0px;
+      padding: 11px 3px;
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      z-index: 1002;
+      opacity: 0.9;
+    }
+    
+    .boxclose:before {
+      content: "×";
+    }
+    
+    #fade:hover ~ #boxclose {
+      display:none;
+    }

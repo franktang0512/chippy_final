@@ -1,0 +1,161 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="F`kW..D6S),z_gfX#8~L">class</variable>
+    <variable type="Var" id="nqaq;TH0yPK,ZVWq.7eQ">num</variable>
+    <variable id="M^5,BWw3rD*LHJ:]TP[{">i</variable>
+  </variables>
+  <block type="variables_set" x="121" y="122">
+    <field name="VAR" id="F`kW..D6S),z_gfX#8~L" variabletype="Var">class</field>
+    <value name="VALUE">
+      <block type="lists_repeat">
+        <value name="ITEM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">20</field>
+          </shadow>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="nqaq;TH0yPK,ZVWq.7eQ" variabletype="Var">num</field>
+        <value name="VALUE">
+          <block type="text_prompt_ext">
+            <mutation type="NUMBER"></mutation>
+            <field name="TYPE">NUMBER</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">num?</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_whileUntil">
+            <field name="MODE">UNTIL</field>
+            <value name="BOOL">
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR" id="nqaq;TH0yPK,ZVWq.7eQ" variabletype="Var">num</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">-1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="lists_setIndex">
+                <mutation at="true"></mutation>
+                <field name="MODE">SET</field>
+                <field name="WHERE">FROM_START</field>
+                <value name="LIST">
+                  <block type="variables_get">
+                    <field name="VAR" id="F`kW..D6S),z_gfX#8~L" variabletype="Var">class</field>
+                  </block>
+                </value>
+                <value name="AT">
+                  <block type="variables_get">
+                    <field name="VAR" id="nqaq;TH0yPK,ZVWq.7eQ" variabletype="Var">num</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="nqaq;TH0yPK,ZVWq.7eQ" variabletype="Var">num</field>
+                    <value name="VALUE">
+                      <block type="text_prompt_ext">
+                        <mutation type="NUMBER"></mutation>
+                        <field name="TYPE">NUMBER</field>
+                        <value name="TEXT">
+                          <shadow type="text">
+                            <field name="TEXT">num?</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="controls_for">
+                <field name="VAR" id="M^5,BWw3rD*LHJ:]TP[{">i</field>
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">20</field>
+                  </shadow>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="controls_if">
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="lists_getIndex">
+                            <mutation statement="false" at="true"></mutation>
+                            <field name="MODE">GET</field>
+                            <field name="WHERE">FROM_START</field>
+                            <value name="VALUE">
+                              <block type="variables_get">
+                                <field name="VAR" id="F`kW..D6S),z_gfX#8~L" variabletype="Var">class</field>
+                              </block>
+                            </value>
+                            <value name="AT">
+                              <block type="variables_get">
+                                <field name="VAR" id="M^5,BWw3rD*LHJ:]TP[{">i</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="blockly_print">
+                        <value name="TEXT">
+                          <shadow type="text">
+                            <field name="TEXT">abc</field>
+                          </shadow>
+                          <block type="variables_get">
+                            <field name="VAR" id="M^5,BWw3rD*LHJ:]TP[{">i</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

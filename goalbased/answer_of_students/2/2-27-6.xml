@@ -1,0 +1,142 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id=")! ukPGoN(oSxR-=WiS$">收縮</variable>
+    <variable type="Var" id="}I-5;)l1e3z$Dz1T{/}W">舒張</variable>
+  </variables>
+  <block type="variables_set" x="87" y="306">
+    <field name="VAR" id=")! ukPGoN(oSxR-=WiS$" variabletype="Var">收縮</field>
+    <value name="VALUE">
+      <block type="text_prompt_ext">
+        <mutation type="NUMBER"></mutation>
+        <field name="TYPE">NUMBER</field>
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">收縮壓</field>
+          </shadow>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="}I-5;)l1e3z$Dz1T{/}W" variabletype="Var">舒張</field>
+        <value name="VALUE">
+          <block type="text_prompt_ext">
+            <mutation type="NUMBER"></mutation>
+            <field name="TYPE">NUMBER</field>
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">舒張壓</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="controls_if">
+            <mutation elseif="2" else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_operation">
+                <field name="OP">AND</field>
+                <value name="A">
+                  <block type="logic_compare">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id=")! ukPGoN(oSxR-=WiS$" variabletype="Var">收縮</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">120</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="logic_compare">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="}I-5;)l1e3z$Dz1T{/}W" variabletype="Var">舒張</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">80</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="blockly_print">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">收縮壓與舒張壓過高</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <value name="IF1">
+              <block type="logic_compare">
+                <field name="OP">GTE</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR" id=")! ukPGoN(oSxR-=WiS$" variabletype="Var">收縮</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">120</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO1">
+              <block type="blockly_print">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">收縮壓過高</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <value name="IF2">
+              <block type="logic_compare">
+                <field name="OP">GTE</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR" id="}I-5;)l1e3z$Dz1T{/}W" variabletype="Var">舒張</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">80</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO2">
+              <block type="blockly_print">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">舒張壓過高</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="blockly_print">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">正常血壓</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

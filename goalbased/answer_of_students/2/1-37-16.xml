@@ -1,0 +1,15 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="loop_scratch" x="-342" y="-163">
+    <field name="times">5</field>
+    <statement name="code">
+      <block type="loop_scratch">
+        <field name="times">10</field>
+        <statement name="code">
+          <block type="change_ship">
+            <field name="chan">0</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

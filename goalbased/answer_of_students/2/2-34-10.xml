@@ -1,0 +1,210 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="*umBj8yqono]M.mPO7U}">A</variable>
+    <variable type="Var" id="XCVd^PI1Bn|sD/.u#so(">j</variable>
+    <variable type="Var" id="u!kVXEC8ffdC!hEg2-#u">輸入</variable>
+    <variable id="IeE8O}Vx46WfJH{%q^[7">i</variable>
+  </variables>
+  <block type="variables_set" x="314" y="143">
+    <field name="VAR" id="*umBj8yqono]M.mPO7U}" variabletype="Var">A</field>
+    <value name="VALUE">
+      <block type="lists_repeat">
+        <value name="ITEM">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">20</field>
+          </shadow>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="XCVd^PI1Bn|sD/.u#so(" variabletype="Var">j</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="u!kVXEC8ffdC!hEg2-#u" variabletype="Var">輸入</field>
+            <value name="VALUE">
+              <block type="text_prompt_ext">
+                <mutation type="NUMBER"></mutation>
+                <field name="TYPE">NUMBER</field>
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">幾號交</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_whileUntil">
+                <field name="MODE">UNTIL</field>
+                <value name="BOOL">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="u!kVXEC8ffdC!hEg2-#u" variabletype="Var">輸入</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">-1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="lists_setIndex">
+                    <mutation at="true"></mutation>
+                    <field name="MODE">SET</field>
+                    <field name="WHERE">FROM_START</field>
+                    <value name="LIST">
+                      <block type="variables_get">
+                        <field name="VAR" id="*umBj8yqono]M.mPO7U}" variabletype="Var">A</field>
+                      </block>
+                    </value>
+                    <value name="AT">
+                      <block type="variables_get">
+                        <field name="VAR" id="u!kVXEC8ffdC!hEg2-#u" variabletype="Var">輸入</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR" id="u!kVXEC8ffdC!hEg2-#u" variabletype="Var">輸入</field>
+                        <value name="VALUE">
+                          <block type="text_prompt_ext">
+                            <mutation type="NUMBER"></mutation>
+                            <field name="TYPE">NUMBER</field>
+                            <value name="TEXT">
+                              <shadow type="text">
+                                <field name="TEXT">幾號交</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_for">
+                    <field name="VAR" id="IeE8O}Vx46WfJH{%q^[7">i</field>
+                    <value name="FROM">
+                      <shadow type="math_number">
+                        <field name="NUM">1</field>
+                      </shadow>
+                    </value>
+                    <value name="TO">
+                      <shadow type="math_number">
+                        <field name="NUM">20</field>
+                      </shadow>
+                    </value>
+                    <value name="BY">
+                      <shadow type="math_number">
+                        <field name="NUM">1</field>
+                      </shadow>
+                    </value>
+                    <statement name="DO">
+                      <block type="controls_if">
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="lists_getIndex">
+                                <mutation statement="false" at="true"></mutation>
+                                <field name="MODE">GET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE">
+                                  <block type="variables_get">
+                                    <field name="VAR" id="*umBj8yqono]M.mPO7U}" variabletype="Var">A</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="variables_get">
+                                    <field name="VAR" id="IeE8O}Vx46WfJH{%q^[7">i</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="blockly_print">
+                            <value name="TEXT">
+                              <shadow type="text">
+                                <field name="TEXT">無缺繳</field>
+                              </shadow>
+                              <block type="variables_get">
+                                <field name="VAR" id="IeE8O}Vx46WfJH{%q^[7">i</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="XCVd^PI1Bn|sD/.u#so(" variabletype="Var">j</field>
+                                <value name="VALUE">
+                                  <block type="math_number">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="controls_if">
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get">
+                                <field name="VAR" id="XCVd^PI1Bn|sD/.u#so(" variabletype="Var">j</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="blockly_print">
+                            <value name="TEXT">
+                              <shadow type="text">
+                                <field name="TEXT">無缺繳</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

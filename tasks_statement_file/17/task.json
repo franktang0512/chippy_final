@@ -1,0 +1,41 @@
+{
+  "title": "腳踏車",
+  "level": "4",
+  "testdata": [
+    {
+      "input": "4.5",
+      "output": "95",
+      "example": true,
+      "testcase_title": "範例一"
+    },
+    {
+      "input": "0.2",
+      "output": "5",
+      "testcase_title": "騎乘未滿30分鐘的情況"
+    },
+    {
+      "input": "1",
+      "output": "15",
+      "testcase_title": "騎乘滿30分鐘，但未滿4小時的情況"
+    },
+    {
+      "input": "2.5",
+      "output": "45",
+      "testcase_title": "騎乘滿30分鐘，但未滿4小時的情況"
+    },
+    {
+      "input": "4.5",
+      "output": "95",
+      "testcase_title": "騎乘滿4小時，但未滿8小時的情況"
+    },
+    {
+      "input": "8.5",
+      "output": "275",
+      "testcase_title": "騎乘滿8小時以上的情況"
+    }
+  ],
+  "statement": "公共腳踏車的計費方式如下：\n騎乘未滿半小時，以半小時計算。\n",
+  "table": "[\n\t[\"前半小時\", \"5元\"],\n\t[\"半小時後~四小時內\", \"每半小時10元\"],\n\t[\"四小時後~八小時內\", \"每半小時20元\"],\n\t[\"八小時後\", \"每半小時40元\"]\n]",
+  "Ncase": "6",
+  "Nexample": "1"
+}

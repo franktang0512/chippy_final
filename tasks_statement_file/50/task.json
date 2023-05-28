@@ -1,0 +1,46 @@
+{
+  "title": "問題導向Lv0-練習",
+  "statement": "遊樂園小火車進廠進行輪胎檢驗。\n檢驗項目包含輪胎的胎壓(PSI)與胎痕(公分)。當胎壓低於30PSI或胎痕小於1.6公分，表示輪胎需要維護。\n請設計自動檢驗機，根據輪胎狀況輸出「需要維護」或「不需要維護」。\n",
+  "table": "",
+  "Ncase": "7",
+  "Nexample": "2",
+  "level": "2",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "40 1.8",
+      "output": "不需要維護",
+      "testcase_title": "範例一"
+    },
+    {
+      "input": "25 1.7",
+      "output": "需要維護",
+      "testcase_title": "範例二"
+    },
+    {
+      "input": "40 1.8",
+      "output": "不需要維護",
+      "testcase_title": "不需要維護的狀況"
+    },
+    {
+      "input": "30 1.6",
+      "output": "不需要維護",
+      "testcase_title": "不需要維護的狀況"
+    },
+    {
+      "input": "25 1.7",
+      "output": "需要維護",
+      "testcase_title": "胎壓不足的狀況"
+    },
+    {
+      "input": "35 1.4",
+      "output": "需要維護",
+      "testcase_title": "胎痕不足的狀況"
+    },
+    {
+      "input": "28 1.1",
+      "output": "需要維護",
+      "testcase_title": "需要維護的狀況"
+    }
+  ]
+}

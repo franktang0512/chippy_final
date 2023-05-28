@@ -1,0 +1,26 @@
+{
+  "title": "測試四",
+  "statement": "測試四",
+  "table": "",
+  "Ncase": 3,
+  "Nexample": "1",
+  "level": "6",
+  "jspath": "",
+  "testdata": [
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": "example"
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": "nonexample"
+    },
+    {
+      "input": "",
+      "output": "",
+      "testcase_title": "nonexample"
+    }
+  ]
+}

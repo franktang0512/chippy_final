@@ -1,0 +1,16 @@
+{
+  "title": "掃地機器人",
+  "level": "0",
+  "testdata": [
+    {
+      "input": "",
+      "output": "",
+      "example": true,
+      "testcase_title": ""
+    }
+  ],
+  "statement": "請寫程式指引掃地機器人清掃環境，機器人必須在清潔過所有地板後回到充電器充電。",
+  "table": "",
+  "Ncase": "0",
+  "Nexample": "0"
+}

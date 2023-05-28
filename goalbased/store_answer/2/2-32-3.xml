@@ -1,0 +1,277 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id=" ln^wFATQf^RmrC8`.ma">次數</variable>
+    <variable type="Var" id="D.KXI91}]rXdor(d8Zb9">總金額</variable>
+  </variables>
+  <block type="start" x="493" y="93">
+    <next>
+      <block type="set">
+        <field name="VAR" id=" ln^wFATQf^RmrC8`.ma" variabletype="Var">次數</field>
+        <value name="VALUE">
+          <shadow type="text_s">
+            <field name="TEXT">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="set">
+            <field name="VAR" id="D.KXI91}]rXdor(d8Zb9" variabletype="Var">總金額</field>
+            <value name="VALUE">
+              <shadow type="text_s">
+                <field name="TEXT">1</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="whileuntil">
+                <field name="MODE">UNTIL</field>
+                <value name="BOOL">
+                  <block type="compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <shadow type="text_s">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="answer"></block>
+                    </value>
+                    <value name="B">
+                      <shadow type="text_s">
+                        <field name="TEXT">-1</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="ask">
+                    <value name="question">
+                      <shadow type="text_s">
+                        <field name="TEXT"></field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="change">
+                        <field name="VAR" id="D.KXI91}]rXdor(d8Zb9" variabletype="Var">總金額</field>
+                        <value name="DELTA">
+                          <shadow type="number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <next>
+                          <block type="change">
+                            <field name="VAR" id=" ln^wFATQf^RmrC8`.ma" variabletype="Var">次數</field>
+                            <value name="DELTA">
+                              <shadow type="number">
+                                <field name="NUM">1</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="ifelse">
+                    <value name="IF0">
+                      <block type="compare">
+                        <field name="OP">LTE</field>
+                        <value name="A">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="get">
+                            <field name="VAR" id=" ln^wFATQf^RmrC8`.ma" variabletype="Var">次數</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="text_s">
+                            <field name="TEXT">5</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="round">
+                            <field name="OP">ROUND</field>
+                            <value name="NUM">
+                              <shadow type="math_number">
+                                <field name="NUM">3.1</field>
+                              </shadow>
+                              <block type="arithmetic">
+                                <field name="OP">MULTIPLY</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="get">
+                                    <field name="VAR" id="D.KXI91}]rXdor(d8Zb9" variabletype="Var">總金額</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">0.01</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="ifelse">
+                        <value name="IF0">
+                          <block type="compare">
+                            <field name="OP">LTE</field>
+                            <value name="A">
+                              <shadow type="text_s">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="get">
+                                <field name="VAR" id=" ln^wFATQf^RmrC8`.ma" variabletype="Var">次數</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="text_s">
+                                <field name="TEXT">15</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="print">
+                            <value name="TEXT">
+                              <shadow type="text_s">
+                                <field name="TEXT"></field>
+                              </shadow>
+                              <block type="round">
+                                <field name="OP">ROUND</field>
+                                <value name="NUM">
+                                  <shadow type="math_number">
+                                    <field name="NUM">3.1</field>
+                                  </shadow>
+                                  <block type="arithmetic">
+                                    <field name="OP">MULTIPLY</field>
+                                    <value name="A">
+                                      <shadow type="number">
+                                        <field name="NUM"></field>
+                                      </shadow>
+                                      <block type="get">
+                                        <field name="VAR" id="D.KXI91}]rXdor(d8Zb9" variabletype="Var">總金額</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="number">
+                                        <field name="NUM">0.03</field>
+                                      </shadow>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="ifelse">
+                            <value name="IF0">
+                              <block type="compare">
+                                <field name="OP">LTE</field>
+                                <value name="A">
+                                  <shadow type="text_s">
+                                    <field name="TEXT"></field>
+                                  </shadow>
+                                  <block type="get">
+                                    <field name="VAR" id=" ln^wFATQf^RmrC8`.ma" variabletype="Var">次數</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text_s">
+                                    <field name="TEXT">30</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="print">
+                                <value name="TEXT">
+                                  <shadow type="text_s">
+                                    <field name="TEXT"></field>
+                                  </shadow>
+                                  <block type="round">
+                                    <field name="OP">ROUND</field>
+                                    <value name="NUM">
+                                      <shadow type="math_number">
+                                        <field name="NUM">3.1</field>
+                                      </shadow>
+                                      <block type="arithmetic">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM"></field>
+                                          </shadow>
+                                          <block type="get">
+                                            <field name="VAR" id="D.KXI91}]rXdor(d8Zb9" variabletype="Var">總金額</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">0.05</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                            <statement name="ELSE">
+                              <block type="print">
+                                <value name="TEXT">
+                                  <shadow type="text_s">
+                                    <field name="TEXT"></field>
+                                  </shadow>
+                                  <block type="round">
+                                    <field name="OP">ROUND</field>
+                                    <value name="NUM">
+                                      <shadow type="math_number">
+                                        <field name="NUM">3.1</field>
+                                      </shadow>
+                                      <block type="arithmetic">
+                                        <field name="OP">MULTIPLY</field>
+                                        <value name="A">
+                                          <shadow type="number">
+                                            <field name="NUM"></field>
+                                          </shadow>
+                                          <block type="get">
+                                            <field name="VAR" id="D.KXI91}]rXdor(d8Zb9" variabletype="Var">總金額</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="number">
+                                            <field name="NUM">0.1</field>
+                                          </shadow>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

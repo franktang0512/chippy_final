@@ -1,0 +1,159 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="(fxvw$e5|zjhv;oIZv%C">A</variable>
+    <variable type="Var" id=",_R.MGeQ0xG-_[0du54S">B</variable>
+  </variables>
+  <block type="set" x="260" y="104">
+    <field name="VAR" id="(fxvw$e5|zjhv;oIZv%C" variabletype="Var">A</field>
+    <value name="VALUE">
+      <shadow type="text_s">
+        <field name="TEXT">0</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="set">
+        <field name="VAR" id=",_R.MGeQ0xG-_[0du54S" variabletype="Var">B</field>
+        <value name="VALUE">
+          <shadow type="text_s">
+            <field name="TEXT">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="whileuntil">
+            <field name="MODE">UNTIL</field>
+            <value name="BOOL">
+              <block type="operation">
+                <field name="OP">OR</field>
+                <value name="A">
+                  <block type="compare">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <shadow type="number">
+                        <field name="NUM"></field>
+                      </shadow>
+                      <block type="get">
+                        <field name="VAR" id="(fxvw$e5|zjhv;oIZv%C" variabletype="Var">A</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="number">
+                        <field name="NUM">3</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="compare">
+                    <field name="OP">GTE</field>
+                    <value name="A">
+                      <shadow type="number">
+                        <field name="NUM"></field>
+                      </shadow>
+                      <block type="get">
+                        <field name="VAR" id=",_R.MGeQ0xG-_[0du54S" variabletype="Var">B</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="number">
+                        <field name="NUM">3</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="ask">
+                <value name="question">
+                  <shadow type="text_s">
+                    <field name="TEXT"></field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="ifelse">
+                    <value name="IF0">
+                      <block type="compare">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <shadow type="number">
+                            <field name="NUM"></field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <value name="B">
+                          <shadow type="number">
+                            <field name="NUM">12</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="change">
+                        <field name="VAR" id="(fxvw$e5|zjhv;oIZv%C" variabletype="Var">A</field>
+                        <value name="DELTA">
+                          <shadow type="number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="change">
+                        <field name="VAR" id=",_R.MGeQ0xG-_[0du54S" variabletype="Var">B</field>
+                        <value name="DELTA">
+                          <shadow type="number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="ifelse">
+                <value name="IF0">
+                  <block type="compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <shadow type="number">
+                        <field name="NUM"></field>
+                      </shadow>
+                      <block type="get">
+                        <field name="VAR" id="(fxvw$e5|zjhv;oIZv%C" variabletype="Var">A</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="number">
+                        <field name="NUM">3</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="print">
+                    <value name="TEXT">
+                      <shadow type="text_s">
+                        <field name="TEXT">A</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="print">
+                    <value name="TEXT">
+                      <shadow type="text_s">
+                        <field name="TEXT">B</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

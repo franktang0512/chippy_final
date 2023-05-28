@@ -1,0 +1,127 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="start" x="341" y="-32">
+    <next>
+      <block type="ask">
+        <value name="question">
+          <shadow type="text_s">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+        <next>
+          <block type="ifelse">
+            <value name="IF0">
+              <block type="compare">
+                <field name="OP">GTE</field>
+                <value name="A">
+                  <shadow type="text_s">
+                    <field name="TEXT"></field>
+                  </shadow>
+                  <block type="answer"></block>
+                </value>
+                <value name="B">
+                  <shadow type="text_s">
+                    <field name="TEXT">120</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="ask">
+                <value name="question">
+                  <shadow type="text_s">
+                    <field name="TEXT"></field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="ifelse">
+                    <value name="IF0">
+                      <block type="compare">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <value name="B">
+                          <shadow type="text_s">
+                            <field name="TEXT">80</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT">收縮壓與舒張壓過高</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT">收縮壓過高</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="ask">
+                <value name="question">
+                  <shadow type="text_s">
+                    <field name="TEXT"></field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="ifelse">
+                    <value name="IF0">
+                      <block type="compare">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <value name="B">
+                          <shadow type="text_s">
+                            <field name="TEXT">80</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT">舒張壓過高</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="print">
+                        <value name="TEXT">
+                          <shadow type="text_s">
+                            <field name="TEXT">正常血壓</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

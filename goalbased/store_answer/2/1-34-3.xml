@@ -1,0 +1,189 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="4%)mQ5z^?j.(MSGqNbF?">c</variable>
+    <variable type="List" id="$QL)?i2zpGbt|G]SL.-i">class</variable>
+    <variable type="Var" id="r9:bg|`:*KHembhOf3s:">i</variable>
+  </variables>
+  <block type="set" x="237" y="37">
+    <field name="VAR" id="4%)mQ5z^?j.(MSGqNbF?" variabletype="Var">c</field>
+    <value name="VALUE">
+      <shadow type="text_s">
+        <field name="TEXT">0</field>
+      </shadow>
+    </value>
+    <next>
+      <block type="repeat_ext">
+        <value name="TIMES">
+          <shadow type="number">
+            <field name="NUM">20</field>
+          </shadow>
+        </value>
+        <statement name="DO">
+          <block type="add_list">
+            <field name="LIST" id="$QL)?i2zpGbt|G]SL.-i" variabletype="List">class</field>
+            <value name="VALUE">
+              <shadow type="text_s">
+                <field name="TEXT">0</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="ask">
+            <value name="question">
+              <shadow type="text_s">
+                <field name="TEXT"></field>
+              </shadow>
+            </value>
+            <next>
+              <block type="whileuntil">
+                <field name="MODE">WHILE</field>
+                <value name="BOOL">
+                  <block type="compare">
+                    <field name="OP">NEQ</field>
+                    <value name="A">
+                      <shadow type="number">
+                        <field name="NUM"></field>
+                      </shadow>
+                      <block type="answer"></block>
+                    </value>
+                    <value name="B">
+                      <shadow type="number">
+                        <field name="NUM">-1</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="setIndex_list">
+                    <field name="LIST" id="$QL)?i2zpGbt|G]SL.-i" variabletype="List">class</field>
+                    <value name="AT">
+                      <shadow type="math_number">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="answer"></block>
+                    </value>
+                    <value name="VALUE">
+                      <shadow type="text_s">
+                        <field name="TEXT">1</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="ask">
+                        <value name="question">
+                          <shadow type="text_s">
+                            <field name="TEXT"></field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="set">
+                    <field name="VAR" id="r9:bg|`:*KHembhOf3s:" variabletype="Var">i</field>
+                    <value name="VALUE">
+                      <shadow type="text_s">
+                        <field name="TEXT">1</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="repeat_ext">
+                        <value name="TIMES">
+                          <shadow type="number">
+                            <field name="NUM">20</field>
+                          </shadow>
+                        </value>
+                        <statement name="DO">
+                          <block type="if">
+                            <value name="IF0">
+                              <block type="compare">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="getIndex_list">
+                                    <field name="LIST" id="$QL)?i2zpGbt|G]SL.-i" variabletype="List">class</field>
+                                    <value name="AT">
+                                      <shadow type="math_number">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="get">
+                                        <field name="VAR" id="r9:bg|`:*KHembhOf3s:" variabletype="Var">i</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="change">
+                                <field name="VAR" id="4%)mQ5z^?j.(MSGqNbF?" variabletype="Var">c</field>
+                                <value name="DELTA">
+                                  <shadow type="number">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="change">
+                                <field name="VAR" id="r9:bg|`:*KHembhOf3s:" variabletype="Var">i</field>
+                                <value name="DELTA">
+                                  <shadow type="number">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="if">
+                            <value name="IF0">
+                              <block type="compare">
+                                <field name="OP">EQ</field>
+                                <value name="A">
+                                  <shadow type="number">
+                                    <field name="NUM"></field>
+                                  </shadow>
+                                  <block type="get">
+                                    <field name="VAR" id="4%)mQ5z^?j.(MSGqNbF?" variabletype="Var">c</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="number">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="print">
+                                <value name="TEXT">
+                                  <shadow type="text_s">
+                                    <field name="TEXT">無缺繳</field>
+                                  </shadow>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

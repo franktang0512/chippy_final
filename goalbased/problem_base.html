@@ -1,0 +1,676 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ploblem_base</title>
+    <!-- include css -->
+    <link rel="stylesheet" href="./libs/style.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/e9c74dcff3.js" crossorigin="anonymous"></script>
+    <!-- incude javascript -->
+    <script src="./node_modules/blockly/blockly_compressed.js"></script>
+    <script src="./node_modules/blockly/blocks_compressed.js"></script>
+    <script src="./node_modules/blockly/javascript_compressed.js"></script>
+    <script src="./libs/zh-hant.js"></script>
+    
+    <!-- <script src="./lucky_number.js"></script> -->
+    <!-- <script src="./cake.js"></script> -->
+    <!-- <script src="./drink.js"></script> -->
+    <script src="./lucky_number.js"></script>
+    <script src="./libs/acorn_interpreter.js"></script>
+
+    <script src="./node_modules/blockly/blocks/scratch.js"></script>
+    <!-- <script src="./node_modules/blockly/blocks/scratch_ch.js"></script> -->
+    <script src="./node_modules/blockly/generators/javascript/scratch.js"></script>
+    <!-- <script src="./node_modules/blockly/generators/javascript/scratch_ch.js"></script> -->
+</head>
+
+<body>
+    <nav class='navbar navbar-bg py-1' style='margin-bottom: 10px;'>
+        <div class='container'>
+            <div class='d-flex flex-wrap justify-content-left' style='display: inline;'>
+                <a class='navbar-brand' href='../index.php'>
+                    <img src='../img/logo-small.png' style='width:30px;'>
+                    Chippy 挑戰賽 2.0
+                </a>
+                <button id='mode_select' class='btn btn-light btn-sm'>切換成scratch</button>
+            </div>
+            
+            <div id='title_div' class='title'></div>
+            <div class='d-flex flex-wrap justify-content-right'>
+                <ul class='nav navbar-nav'>
+                    <li><a href='' style='color:white'>你好！" . $_SESSION["u_name"] . "</a></li> 
+                </ul> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <ul class='nav navbar-nav'>
+                    <li><a href='../tea_example.php' style='color:white'>回題目選單</a></li>
+                </ul> &nbsp;&nbsp;&nbsp;
+                <ul class='nav navbar-nav'>
+                    <li><a href='../logout.php' style='color:white'>登出</a></li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+    <div id="title_div" style="background-color: aqua; width: 10%; border-radius: 10px; margin: auto; text-align:center; font-size: 25;"></div>
+    <dialog id="hint" style="text-align:center ; margin: auto;">
+        <p>將清空工作區, 是否確定轉換?</p>
+        <button id="hint_yes">確認</button>
+        <button id="hint_no">取消</button>
+    </dialog>
+    <div class="workspace" id="blocklyDiv"></div>
+    <div class="workspace" id="scratchDiv"></div>
+    <div id="view" class="column canvas-bg">
+        <button class="btn btn-lg" id="question_btn" style="background-color:  #84C1FF;" onclick="show_question()">任務說明</button>
+        <button class="btn btn-lg" id="output_btn" style="background-color: white;" onclick="show_output()">任務演練</button>
+        <button class="btn btn-lg" id="test_btn" style="background-color: white;" onclick="show_test()">任務挑戰</button>
+        <div id="question_div" class="backimg" style="background-image: url('./libs/long_blackboard.png'); display: block; padding: 5%; height: 92%;">
+            <textarea id="question" class="text" readonly style="color: white; height: 90%;">
+            </textarea>
+        </div>   
+        <div id="output_div" class="backimg" style="background-image: url('./libs/notebook.png'); display: none; padding:15% 5%; height: 92%;">
+            <button id="status" type="button" class="btn btn-outline-success btn-lg" onclick="runCode();">執行程式</button>
+            <textarea id="result" class="text" readonly style=" margin-top: 2%; height: 95%; border-top-style: solid;">
+輸出：
+            </textarea>
+        </div>  
+        
+        <div id="test_div"  class="backimg" style="background-image: url('./libs/notebook.png'); display: none; padding:15% 5%; height: 92%;">
+            <div id="progressbar">
+                <div id="bar"></div>
+            </div>
+            <div style="width: 100%; height: auto; text-align: right;">
+                <button class="btn" style="margin: 5px; background-color: blue; color: white;" onclick="judgeCode();submit_answer();">進行評分</button>
+                <div id="percent" class="text" style="width: 50%;">答對率：</div>
+            </div>
+            <div id="testcase_div" style="overflow-y: auto; height: 80%">
+
+            </div>
+        </div>
+    </div>
+
+    <xml id="toolbox" style="display: none">
+        <category name="%{BKY_TEXT_TITLE}" colour="%{BKY_TEXTS_HUE}">
+            <block type="text"></block>
+            <block type="text_join"></block>
+            <block type="text_length">
+                <value name="VALUE">
+                    <shadow type="text">
+                    <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="blockly_print">
+            <value name="TEXT">
+                <shadow type="text">
+                <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="text_prompt_ext">
+                <value name="TEXT">
+                    <shadow type="text">
+                    <field name="TEXT">abc</field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+
+        <category name="%{BKY_MATH_TITLE}" colour="%{BKY_MATH_HUE}">
+            <block type="math_number">
+            <field name="NUM">0</field>
+            </block>
+            <block type="math_arithmetic">
+            <value name="A">
+                <shadow type="math_number">
+                <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                <field name="NUM">1</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_single">
+            <value name="NUM">
+                <shadow type="math_number">
+                <field name="NUM">9</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_trig">
+            <value name="NUM">
+                <shadow type="math_number">
+                <field name="NUM">45</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_constant"></block>
+            <block type="math_number_property">
+            <value name="NUMBER_TO_CHECK">
+                <shadow type="math_number">
+                <field name="NUM">0</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_round">
+            <value name="NUM">
+                <shadow type="math_number">
+                <field name="NUM">3.1</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_modulo">
+            <value name="DIVIDEND">
+                <shadow type="math_number">
+                <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="DIVISOR">
+                <shadow type="math_number">
+                <field name="NUM">10</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_random_int">
+            <value name="FROM">
+                <shadow type="math_number">
+                <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                <field name="NUM">100</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="math_random_float"></block>
+        </category>
+        
+        <category name="%{BKY_LOGIC_TITLE}" colour="%{BKY_LOGIC_HUE}">
+            <block type="controls_if"></block>
+            <block type="logic_compare"></block>
+            <block type="logic_operation"></block>
+            <block type="logic_negate"></block>
+            <block type="logic_boolean"></block>
+        </category>
+        
+        <category name="%{BKY_CONTROLS_TITLE}" colour="%{BKY_LOOPS_HUE}">
+            <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <shadow type="math_number">
+                <field name="NUM">10</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="controls_whileUntil"></block>
+            <block type="controls_for">
+            <field name="VAR">i</field>
+            <value name="FROM">
+                <shadow type="math_number">
+                <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="BY">
+                <shadow type="math_number">
+                <field name="NUM">1</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="controls_flow_statements"></block>
+        </category>
+
+        <category name="%{BKY_LISTS_TITLE}" colour="%{BKY_LISTS_HUE}">
+            <block type="lists_create_empty"></block>
+            <block type="lists_create_with"></block>
+            <block type="lists_repeat">
+            <value name="NUM">
+                <shadow type="math_number">
+                <field name="NUM">5</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="lists_length"></block>
+            <block type="lists_getIndex"></block>
+            <block type="lists_setIndex"></block>
+        </category>
+
+        <sep></sep>
+        
+        <category name="%{BKY_IOS_TITLE}" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}"></category>
+        
+        </xml>
+
+    <xml id="toolbox_scratch" style="display: none">
+        <category name="%{BKY_EVENT_TITLE}" colour="#5CB1D6">
+            <block type="ask">
+            <value name="question">
+                <shadow type="text_s">
+                <field name="TEXT"></field>
+                </shadow>
+            </value>
+            </block>
+            <block type="answer"></block>
+            <block type="print">
+                <value name="TEXT">
+                    <shadow type="text_s">
+                    <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+        </category>
+
+        <category name="%{BKY_CONTROL_TITLE}" colour="#FFBF00">
+            <block type="if"></block>
+            <block type="ifelse"></block>
+            <block type="repeat_ext">
+            <value name="TIMES">
+                <shadow type="number">
+                <field name="NUM">10</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="whileuntil"></block>
+            <block type="flow_statements"></block>
+        </category>
+
+        <category name="%{BKY_OPERATOR_TITLE}" colour="#36BF36">
+            <block type="compare">
+                <value name="A">
+                    <shadow type="number">
+                    <field name="NUM"></field>
+                    </shadow>
+                </value>
+                <value name="B">
+                    <shadow type="number">
+                    <field name="NUM"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="arithmetic">
+                <value name="A">
+                    <shadow type="number">
+                    <field name="NUM"></field>
+                    </shadow>
+                </value>
+                <value name="B">
+                    <shadow type="number">
+                    <field name="NUM">50</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="operation"></block>
+            <block type="negate"></block>
+            <!-- <block type="number"></block> -->
+            <block type="single_trig">
+                <value name="NUM">
+                    <shadow type="math_number">
+                    <field name="NUM">9</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="round">
+                <value name="NUM">
+                    <shadow type="math_number">
+                    <field name="NUM">3.1</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="modulo">
+                <value name="DIVIDEND">
+                    <shadow type="math_number">
+                    <field name="NUM">64</field>
+                    </shadow>
+                </value>
+                <value name="DIVISOR">
+                    <shadow type="math_number">
+                    <field name="NUM">10</field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="random_int">
+            <value name="FROM">
+                <shadow type="math_number">
+                <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                <field name="NUM">100</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="join">
+                <value name="TEXT0">
+                    <shadow type="text_s">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+                <value name="TEXT1">
+                    <shadow type="text_s">
+                        <field name="TEXT"></field>
+                    </shadow>
+                </value>
+            </block>
+            <block type="length">
+            <value name="VALUE">
+                <shadow type="text_s">
+                <field name="TEXT">abc</field>
+                </shadow>
+            </value>
+            </block>
+            <block type="boolean_true"></block>
+        </category>
+
+        <sep></sep>
+
+        <category name="%{BKY_VAR_TITLE}" custom="VARIABLE_SCRATCH" colour="#FF9900"></category>
+
+        <category name="%{BKY_LIST_TITLE}" custom="LIST_SCRATCH" colour="#FE6716"></category>
+
+        </category>
+        </xml>
+
+    <script>
+        init()
+        
+        //change blockly or scratch
+        var s = document.querySelector("#mode_select");
+        let hint=document.querySelector("#hint");
+        let hint_no=document.querySelector("#hint_no");
+        let hint_yes=document.querySelector("#hint_yes");
+        s.addEventListener(
+        "click",(event) => {
+            hint.showModal();
+        }
+        );
+        hint_no.addEventListener("click", function(){
+            hint.close();
+        })
+        hint_yes.addEventListener("click", function(){
+            hint.close();
+            clearCode();
+            if(current_workspace == workspace_blockly){
+                document.getElementById("mode_select").innerHTML = "切換成blockly";
+                document.getElementById('scratchDiv').style.display = 'block';
+                document.getElementById('blocklyDiv').style.display = 'none';
+                current_workspace = workspace_scratch;
+            }
+            else{
+                document.getElementById("mode_select").innerHTML = "切換成scratch";
+                document.getElementById('blocklyDiv').style.display = 'block';
+                document.getElementById('scratchDiv').style.display = 'none';
+                current_workspace = workspace_blockly;
+            }
+        })
+
+        //toolbox Variable
+      Variable_FlyoutCallback = function(workspace) {
+        let xmlList = [];
+        const variableBlock = ["建立變數", "get", "set", "change"];
+        const button = document.createElement('button');
+        button.setAttribute("text", variableBlock[0]);
+        button.setAttribute("callbackKey", "create_variable");
+        xmlList.push(button);
+
+        //insert setter and getter
+        var variable_list = workspace_scratch.getVariablesOfType('Var');
+
+        if(variable_list.length>0) {
+          const mostRecentVariable = variable_list[variable_list.length - 1];
+
+          variable_list.sort(Blockly.VariableModel.compareByName);
+          for (let i = 0, variable; (variable = variable_list[i]); i++) {
+            const block_get = document.createElement('block');
+            block_get.setAttribute('type', variableBlock[1]);
+            block_get.appendChild(generateVariableFieldDom(variable_list[i]));
+            xmlList.push(block_get);
+          }
+
+          const block_set = document.createElement('block');
+          block_set.setAttribute('type', variableBlock[2]);
+          block_set.appendChild(generateVariableFieldDom(mostRecentVariable));
+          xmlList.push(block_set);
+
+          
+          const block_change = document.createElement('block');
+          block_change.setAttribute('type', variableBlock[3]);
+          block_change.appendChild(generateVariableFieldDom(mostRecentVariable));
+
+          const value = Blockly.Xml.textToDom(
+              '<value name="DELTA">' +
+              '<shadow type="number">' +
+              '<field name="NUM">1</field>' +
+              '</shadow>' +
+              '</value>');
+          block_change.appendChild(value);
+          xmlList.push(block_change);
+        }
+        return xmlList;
+      };
+      const generateVariableFieldDom = function(variableModel) {
+        /* Generates the following XML:
+        * <field name="VAR" id="goKTKmYJ8DhVHpruv" variabletype="int">foo</field>
+        */
+        const field = document.createElement('field');
+        field.setAttribute('name', 'VAR');
+        field.setAttribute('id', variableModel.getId());
+        field.setAttribute('variabletype', variableModel.type);
+        const name = document.createTextNode(variableModel.name);
+        field.appendChild(name);
+        return field;
+      };
+
+      workspace_scratch.registerToolboxCategoryCallback('VARIABLE_SCRATCH', Variable_FlyoutCallback);
+      workspace_scratch.registerButtonCallback("create_variable", function(button) {
+        Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'Var');
+      });
+
+      //toolbox List
+
+      List_FlyoutCallback = function(workspace) {
+        let xmlList = [];
+        const listBlock = [
+                            "建立列表",
+                            "get_list", 
+                            "getIndex_list", 
+                            "add_list",
+                            "remove_list", 
+                            "removeAll_list",
+                            "insert_list", 
+                            "setIndex_list", 
+                            "length_list", 
+                        ];
+
+        const button = document.createElement('button');
+        button.setAttribute("text", listBlock[0]);
+        button.setAttribute("callbackKey", "create_list" );
+        xmlList.push(button);
+
+        var list_list = workspace_scratch.getVariablesOfType('List');
+
+        if(list_list.length>0) {
+            const mostRecentList = list_list[list_list.length - 1];
+            
+            const block_create_list = document.createElement('block');
+            block_create_list.setAttribute('type', listBlock[1]);
+            for (let i = 0, list; (list = list_list[i]); i++) {  
+                block_create_list.appendChild(generateListFieldDom(list_list[i]));
+            }
+            xmlList.push(block_create_list);
+            for (let i=2; i<=8; i++){
+                var list_block = document.createElement('block');
+                list_block.setAttribute('type', listBlock[i]);
+                list_block.appendChild(generateListFieldDom(mostRecentList));
+                xmlList.push(list_block);
+            }
+        }
+        return xmlList
+      }
+
+      const generateListFieldDom = function(listModel) {
+        /* Generates the following XML:
+        * <field name="LIST" id="goKTKmYJ8DhVHpruv" variabletype="int">foo</field>
+        */
+        const field = document.createElement('field');
+        field.setAttribute('name', 'LIST');
+        field.setAttribute('id', listModel.getId());
+        field.setAttribute('variabletype', listModel.type);
+        const name = document.createTextNode(listModel.name);
+        field.appendChild(name);
+        return field;
+      };
+
+      workspace_scratch.registerToolboxCategoryCallback('LIST_SCRATCH', List_FlyoutCallback);
+      workspace_scratch.registerButtonCallback("create_list", function(button) {
+        Blockly.Variables.createVariableButtonHandler(button.getTargetWorkspace(), null, 'List');
+      });
+
+        function show_question() {
+            document.getElementById('question_div').style.display='block';
+            document.getElementById('output_div').style.display='none';
+            document.getElementById('test_div').style.display='none';
+            document.getElementById('question_btn').style.backgroundColor='#84C1FF';
+            document.getElementById('output_btn').style.backgroundColor='white';
+            document.getElementById('test_btn').style.backgroundColor='white';
+        }
+
+        function show_output() {
+            document.getElementById('question_div').style.display='none';
+            document.getElementById('output_div').style.display='block';
+            document.getElementById('test_div').style.display='none';
+            document.getElementById('question_btn').style.backgroundColor='white';
+            document.getElementById('output_btn').style.backgroundColor='#84C1FF';
+            document.getElementById('test_btn').style.backgroundColor='white';
+        }
+
+        function show_test() {
+            document.getElementById('question_div').style.display='none';
+            document.getElementById('output_div').style.display='none';
+            document.getElementById('test_div').style.display='block';
+            document.getElementById('question_btn').style.backgroundColor='white';
+            document.getElementById('output_btn').style.backgroundColor='white';
+            document.getElementById('test_btn').style.backgroundColor='#84C1FF';
+        }
+      // 執行程式碼
+        //run
+        function judgeCode() {
+            let c=0;
+            blocks = Blockly.Xml.workspaceToDom(current_workspace);
+            console.log(blocks)
+            for(let i=0;i<back_test_case.length;i++){
+                // Generate JavaScript code and run it.
+                var ans = input_testdata_code(back_test_case[i][0]);
+                //送給後端的ans
+                document.getElementById("testcase_output"+i).innerHTML = (back_test_case[i][3].replaceAll("\n", "<br/>") + ans.replaceAll("\n", "<br/>"));
+                if(ans==back_test_case[i][1]){ // if(回傳結果==correct)
+                    // console.log("correct")
+                    $("#testcase_div").children(".flip").eq(i).css("color", "green")
+                    $("#testcase_div").children(".flip").eq(i).find("i").removeClass("fa-xmark").addClass("fa-check")
+                    if(i>1){
+                        c+=1;
+                    }
+                }
+                else{
+                    // console.log("error")
+                    $("#testcase_div").children(".flip").eq(i).css("color", "red")
+                    $("#testcase_div").children(".flip").eq(i).find("i").removeClass("fa-check").addClass("fa-xmark")
+                }
+            }
+            
+            var elem = document.getElementById("bar");
+            document.getElementById("percent").innerHTML = '答對率：'+ Math.round((c/back_test_case.length)*100) + "%"
+            elem.style.width = (c/back_test_case.length)*100 + "%";
+            
+        }
+
+        function input_testdata_code(input) { // "a, b, c, d, e"
+            // Generate JavaScript code and run it.
+            var code;
+            var result = NaN;
+            window.LoopTrap = 1000;
+            Blockly.JavaScript.INFINITE_LOOP_TRAP =
+                'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+            code = Blockly.JavaScript.workspaceToCode(current_workspace);
+            code = code.replaceAll("Number(window.prompt", "test_input.shift();// ")
+            code = code.replaceAll("window.prompt", "test_input.shift();//\n ")
+            code = 'var output_result_string = \'\'\;\n var test_input = ['+input+'];\n' + code + '\nreturn output_result_string;\n'
+            Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+            if(current_workspace==workspace_scratch){
+                code = initialized_list(code);
+            }
+            try {
+                result = Function(code)();
+            } catch (e) {
+                alert(e);
+            }
+            return result;
+        }
+
+        function runCode() {
+            // Generate JavaScript code and run it.
+            var code;
+            var result = NaN;
+            window.LoopTrap = 1000;
+            Blockly.JavaScript.INFINITE_LOOP_TRAP =
+                'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+            code = Blockly.JavaScript.workspaceToCode(current_workspace);
+            Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+            if(current_workspace==workspace_scratch){
+                code = initialized_list(code);
+            }
+            try {
+                result = Function('var output_result_string = \'\'\;\n ' + code + '\nreturn output_result_string;\n')();
+            } catch (e) {
+                alert(e);
+            }
+            document.getElementById("result").innerHTML = "輸出：\n" + result;
+            return result;
+        }
+
+        function clearCode() {
+            workspace_blockly.clear();
+            workspace_scratch.clear();
+            document.getElementById("result").innerHTML = "輸出：\n";
+        }
+        
+        // 若暫存檔裡有已存在的blockly工作區，則載入
+        try 
+        {
+            var text = getCode();
+            var xml = Blockly.Xml.textToDom(text);
+            Blockly.Xml.domTocurrent_workspace(xml, Blockly.maincurrent_workspace);
+            
+        }
+        catch(err)
+        {
+        }
+        
+        // 設置每次離開時保存Blockly工作區內容
+        try 
+        {
+            window.onbeforeunload = function(event) 
+            {
+                var xml = Blockly.Xml.workspaceToDom(Blockly.maincurrent_workspace);
+                localStorage.setItem(FileName, Blockly.Xml.domToText(xml));
+                localStorage.setItem(FileName+"_speed", document.getElementById("speed").value);
+            };
+        }
+        catch(err)
+        {
+        }
+    </script>
+</body>
+
+
+
+</html>

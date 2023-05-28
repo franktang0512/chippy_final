@@ -1,0 +1,119 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="YjTdBgHjX0a5:uPT 1a;">T</variable>
+    <variable type="Var" id="#YH^Lg5]cl[@bE)G_yY~">min</variable>
+  </variables>
+  <block type="start" x="551" y="126">
+    <next>
+      <block type="set">
+        <field name="VAR" id="YjTdBgHjX0a5:uPT 1a;" variabletype="Var">T</field>
+        <value name="VALUE">
+          <shadow type="text_s">
+            <field name="TEXT">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="set">
+            <field name="VAR" id="#YH^Lg5]cl[@bE)G_yY~" variabletype="Var">min</field>
+            <value name="VALUE">
+              <shadow type="text_s">
+                <field name="TEXT">999999999999999999999999</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="repeat_ext">
+                <value name="TIMES">
+                  <shadow type="number">
+                    <field name="NUM">4</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="ask">
+                    <value name="question">
+                      <shadow type="text_s">
+                        <field name="TEXT"></field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="change">
+                        <field name="VAR" id="YjTdBgHjX0a5:uPT 1a;" variabletype="Var">T</field>
+                        <value name="DELTA">
+                          <shadow type="number">
+                            <field name="NUM">1</field>
+                          </shadow>
+                          <block type="answer"></block>
+                        </value>
+                        <next>
+                          <block type="if">
+                            <value name="IF0">
+                              <block type="compare">
+                                <field name="OP">LT</field>
+                                <value name="A">
+                                  <shadow type="text_s">
+                                    <field name="TEXT"></field>
+                                  </shadow>
+                                  <block type="answer"></block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="text_s">
+                                    <field name="TEXT"></field>
+                                  </shadow>
+                                  <block type="get">
+                                    <field name="VAR" id="#YH^Lg5]cl[@bE)G_yY~" variabletype="Var">min</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="set">
+                                <field name="VAR" id="#YH^Lg5]cl[@bE)G_yY~" variabletype="Var">min</field>
+                                <value name="VALUE">
+                                  <shadow type="text_s">
+                                    <field name="TEXT">0</field>
+                                  </shadow>
+                                  <block type="answer"></block>
+                                </value>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="print">
+                    <value name="TEXT">
+                      <shadow type="text_s">
+                        <field name="TEXT"></field>
+                      </shadow>
+                      <block type="arithmetic">
+                        <field name="OP">MINUS</field>
+                        <value name="A">
+                          <shadow type="number">
+                            <field name="NUM"></field>
+                          </shadow>
+                          <block type="get">
+                            <field name="VAR" id="YjTdBgHjX0a5:uPT 1a;" variabletype="Var">T</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <shadow type="number">
+                            <field name="NUM">50</field>
+                          </shadow>
+                          <block type="get">
+                            <field name="VAR" id="#YH^Lg5]cl[@bE)G_yY~" variabletype="Var">min</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

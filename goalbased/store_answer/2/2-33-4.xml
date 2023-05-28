@@ -1,0 +1,97 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="List" id=";�`A[{=#X4[=mA -xt">商品</variable>
+  </variables>
+  <block type="start" x="484" y="60">
+    <next>
+      <block type="removeAll_list">
+        <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+        <next>
+          <block type="add_list">
+            <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+            <value name="VALUE">
+              <shadow type="text_s">
+                <field name="TEXT">500</field>
+              </shadow>
+            </value>
+            <next>
+              <block type="add_list">
+                <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                <value name="VALUE">
+                  <shadow type="text_s">
+                    <field name="TEXT">50</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="add_list">
+                    <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                    <value name="VALUE">
+                      <shadow type="text_s">
+                        <field name="TEXT">150</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="add_list">
+                        <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                        <value name="VALUE">
+                          <shadow type="text_s">
+                            <field name="TEXT">250</field>
+                          </shadow>
+                        </value>
+                        <next>
+                          <block type="add_list">
+                            <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                            <value name="VALUE">
+                              <shadow type="text_s">
+                                <field name="TEXT">150</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="add_list">
+                                <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                                <value name="VALUE">
+                                  <shadow type="text_s">
+                                    <field name="TEXT">100</field>
+                                  </shadow>
+                                </value>
+                                <next>
+                                  <block type="add_list">
+                                    <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                                    <value name="VALUE">
+                                      <shadow type="text_s">
+                                        <field name="TEXT">350</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="add_list">
+                                        <field name="LIST" id=";�`A[{=#X4[=mA -xt" variabletype="List">商品</field>
+                                        <value name="VALUE">
+                                          <shadow type="text_s">
+                                            <field name="TEXT">1500</field>
+                                          </shadow>
+                                        </value>
+                                        <next>
+                                          <block type="whileuntil">
+                                            <field name="MODE">UNTIL</field>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

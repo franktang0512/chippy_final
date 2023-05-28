@@ -1,0 +1,191 @@
+// 客製化block圖案
+// https://blockly-demo.appspot.com/static/demos/blockfactory/index.html#gtaphj
+Blockly.Blocks['bulb'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("紅燈")
+        .appendField(new Blockly.FieldDropdown([["開","1"], ["關","0"]]), "red")
+        .appendField("綠燈")
+        .appendField(new Blockly.FieldDropdown([["開","1"], ["關","0"]]), "green")
+        .appendField("藍燈")
+        .appendField(new Blockly.FieldDropdown([["開","1"], ["關","0"]]), "blue");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+Blockly.Blocks['math_number'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField(new Blockly.FieldDropdown([["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"], ["10","10"]]), "NUM");
+    this.setOutput(true, null);
+    this.setColour(230);
+ this.setTooltip("");
+ this.setHelpUrl("");
+  }
+};
+
+// 客製化block程式碼
+Blockly.JavaScript['bulb'] = function(block) {
+  var dropdown_red = block.getFieldValue('red');
+  var dropdown_green = block.getFieldValue('green');
+  var dropdown_blue = block.getFieldValue('blue');
+  var code = 'lightBulb("'+dropdown_red+dropdown_green+dropdown_blue+'");\n';
+  code += 'waitForSeconds('+delay+');\n';
+  return code;
+};
+
+Blockly.JavaScript['math_number'] = function(block) {
+  var dropdown_num = block.getFieldValue('NUM');
+  return [dropdown_num, Blockly.JavaScript.ORDER_NONE];
+};
+
+// 更換耶誕樹圖片
+function lightBulb(bulb) 
+{
+	var num = parseInt(bulb, 2);
+	currColor += num;
+	++index;
+	imgName = toImage[num];
+	draw();
+}
+
+// 登記自定義的函數至JS Interpreter中
+function initInterpreterFunction(interpreter, scope) 
+{
+  var wrapper = function(bulb)
+  {
+    bulb = bulb ? bulb.toString() : '';
+	return interpreter.createPrimitive(lightBulb(bulb));
+  };
+  interpreter.setProperty(scope, 'lightBulb', interpreter.createNativeFunction(wrapper));
+}
+
+// 嵌入block
+var toolbox = '<xml>';
+toolbox += '<block type="controls_repeat_ext"></block>';
+toolbox += '<block type="math_number"></block>';
+toolbox += '<block type="bulb"></block>';
+toolbox += '</xml>';
+
+// 黑藍綠靛紅紫黃白-->01234567
+var toColor = [];
+toColor["0"] = "black";
+toColor["1"] = "blue";
+toColor["2"] = "green";
+toColor["3"] = "cyan";
+toColor["4"] = "red";
+toColor["5"] = "purple";
+toColor["6"] = "yellow";
+toColor["7"] = "white";
+
+var toImage = [];
+toImage["0"] = "img/Light/off-off-off.svg";
+toImage["1"] = "img/Light/off-off-on.svg";
+toImage["2"] = "img/Light/off-on-off.svg";
+toImage["3"] = "img/Light/off-on-on.svg";
+toImage["4"] = "img/Light/on-off-off.svg";
+toImage["5"] = "img/Light/on-off-on.svg";
+toImage["6"] = "img/Light/on-on-off.svg";
+toImage["7"] = "img/Light/on-on-on.svg";
+
+function detectResult()
+{
+	correct = true;
+	if(index > ansColor.length)
+		correct = false;
+	for(var i = 0; i < index && correct; ++i)
+		if(currColor[i] != ansColor[i])
+			correct = false;
+	return correct;
+}
+function detectResultFinish()
+{
+	correct = (ansColor == currColor);
+}
+
+// 初始化畫布
+function init()
+{
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	// 黑藍綠靛紅紫黃白-->01234567
+	answer = "黃紫靛白藍黃紫靛白藍黃紫靛白藍黃紫靛白藍", currColor = "", ansColor = "65371653716537165371", imgName = 'img/Light/off-off-off.svg', index = 0;
+	draw();
+}
+
+// 繪製畫布
+function draw() 
+{
+	// 檢查若目前狀態和答案不一致，則背景變為紅色
+	if(finish)
+		detectResultFinish();
+	else
+		detectResult();
+	
+	if(!correct)
+	{
+		ctx.fillStyle = "#ffb3b3";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+	}
+	
+	var img = new Image();
+	img.src = imgName;
+	img.onload = function(){
+		var w = this.width, h = this.height, fontSize = (canvas.width*2)/(answer.length)/2, ratio = Math.min((canvas.width-20)/w, (canvas.height-20-0.6*fontSize)/h);
+		w = w*ratio*0.9;
+		h = h*ratio*0.9;
+		ctx.drawImage(img, (canvas.width-w)/2, 0, w, h);
+		
+		ctx.font = fontSize + "px 微軟正黑體";
+		ctx.textAlign = "start";
+		ctx.textBaseline = "top";
+		
+		var x = fontSize, y = h+fontSize*0.2;
+		for(var i = 0; i < answer.length; ++i)
+		{
+			if(x > canvas.width-fontSize)
+			{
+				x = fontSize;
+				y += fontSize*1.2;
+			}
+			if(i >= index || i > currColor.length-1)
+				ctx.fillStyle = "#d9d9d9";
+			else
+				ctx.fillStyle = toColor[currColor[i]];
+			ctx.fillText(answer[i], x, y);
+			x += fontSize*1.2;
+		}
+	};
+	
+	if(!correct)
+	{
+		resetInterpreter();
+		changeBtn();
+	}
+	return correct;
+}
+
+// 繪製解答畫面
+function sleep(s) 
+{
+	return new Promise(resolve => setTimeout(resolve, s*1000));
+}
+
+async function drawAnswer() 
+{	
+	var repeat_end = (4);
+	for (var count = 0; count < repeat_end; count++) {
+	  lightBulb("110");
+	  await sleep(delay);
+	  lightBulb("101");
+	  await sleep(delay);
+	  lightBulb("011");
+	  await sleep(delay);
+	  lightBulb("111");
+	  await sleep(delay);
+	  lightBulb("001");
+	  await sleep(delay);
+	}
+}

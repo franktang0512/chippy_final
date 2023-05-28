@@ -1,0 +1,154 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable type="Var" id="%4ZbYbkTfnP$7M1|)vF0">商品</variable>
+    <variable type="Var" id="1eA|L-^oV,2ZfVWz(u^C">總金額</variable>
+    <variable type="Var" id="gHkCO35,vp;@.@^YMJ{@">編號</variable>
+  </variables>
+  <block type="variables_set" x="424" y="164">
+    <field name="VAR" id="%4ZbYbkTfnP$7M1|)vF0" variabletype="Var">商品</field>
+    <value name="VALUE">
+      <block type="lists_create_with">
+        <mutation items="8"></mutation>
+        <value name="ADD0">
+          <block type="math_number">
+            <field name="NUM">500</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="math_number">
+            <field name="NUM">50</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="math_number">
+            <field name="NUM">150</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="math_number">
+            <field name="NUM">250</field>
+          </block>
+        </value>
+        <value name="ADD4">
+          <block type="math_number">
+            <field name="NUM">150</field>
+          </block>
+        </value>
+        <value name="ADD5">
+          <block type="math_number">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+        <value name="ADD6">
+          <block type="math_number">
+            <field name="NUM">350</field>
+          </block>
+        </value>
+        <value name="ADD7">
+          <block type="math_number">
+            <field name="NUM">1500</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="1eA|L-^oV,2ZfVWz(u^C" variabletype="Var">總金額</field>
+        <value name="VALUE">
+          <block type="math_number">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="gHkCO35,vp;@.@^YMJ{@" variabletype="Var">編號</field>
+            <value name="VALUE">
+              <block type="text_prompt_ext">
+                <mutation type="NUMBER"></mutation>
+                <field name="TYPE">NUMBER</field>
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">abc</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_whileUntil">
+                <field name="MODE">UNTIL</field>
+                <value name="BOOL">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR" id="gHkCO35,vp;@.@^YMJ{@" variabletype="Var">編號</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">-1</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_change">
+                    <field name="VAR" id="1eA|L-^oV,2ZfVWz(u^C" variabletype="Var">總金額</field>
+                    <value name="DELTA">
+                      <shadow type="math_number">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="lists_getIndex">
+                        <mutation statement="false" at="true"></mutation>
+                        <field name="MODE">GET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="VALUE">
+                          <block type="variables_get">
+                            <field name="VAR" id="%4ZbYbkTfnP$7M1|)vF0" variabletype="Var">商品</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="variables_get">
+                            <field name="VAR" id="gHkCO35,vp;@.@^YMJ{@" variabletype="Var">編號</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR" id="gHkCO35,vp;@.@^YMJ{@" variabletype="Var">編號</field>
+                        <value name="VALUE">
+                          <block type="text_prompt_ext">
+                            <mutation type="NUMBER"></mutation>
+                            <field name="TYPE">NUMBER</field>
+                            <value name="TEXT">
+                              <shadow type="text">
+                                <field name="TEXT">abc</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="blockly_print">
+                    <value name="TEXT">
+                      <shadow type="text">
+                        <field name="TEXT">abc</field>
+                      </shadow>
+                      <block type="variables_get">
+                        <field name="VAR" id="1eA|L-^oV,2ZfVWz(u^C" variabletype="Var">總金額</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

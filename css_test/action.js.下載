@@ -1,0 +1,320 @@
+function cleanOutput() {
+    document.getElementById("outputcontent").innerHTML="";
+}
+
+function parse_query_string(query) {
+  var vars = query.split("&");
+  var query_string = {};
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    var key = decodeURIComponent(pair[0]);
+    var value = decodeURIComponent(pair[1]);
+    // If first entry with this name
+    if (typeof query_string[key] === "undefined") {
+      query_string[key] = decodeURIComponent(value);
+      // If second entry with this name
+    } else if (typeof query_string[key] === "string") {
+      var arr = [query_string[key], decodeURIComponent(value)];
+      query_string[key] = arr;
+      // If third or later entry with this name
+    } else {
+      query_string[key].push(decodeURIComponent(value));
+    }
+  }
+  return query_string;
+}
+
+function getUrlParam() {
+  var location = window.location.href;
+  var p = location.split("?");
+  var param = "";
+  if(p.length>1) {
+    param = parse_query_string(p[1]);
+  } 
+  return param;
+}
+
+function getTaskfromUrl() {
+  var location = window.location.href;
+  var p = location.split("/");
+  p = p[p.length-1];
+  var ques = p; 
+  if (ques.includes("problems") || ques.includes("example")) {
+    p = p.split("?");
+    ques = p[p.length-1];
+    // Avoid show task infomation without login
+    if (p[0].includes("example") && ques !="Basketball") {
+      ques = "";
+    }
+  }
+  else {
+    ques = p.split('.')[0];
+  }
+  ques = getUrlParam()["task"];
+  return ques;
+}
+
+function backtoTasks() {
+  var userlevel = "";
+  try {
+    userlevel = localStorage.getItem("UserLevel");
+  }
+  catch (err){}
+  if (userlevel == "teacher" || userlevel == "admin") {
+    if(location.pathname==="/review/history.php")
+    {
+      window.location.href = "../mainT.php#history";
+    }
+    else{
+      window.location.href = "../mainT.php#review";
+    }
+  }
+  else {
+    window.location.href = "../main.php";
+  }
+
+}
+
+function get_class_students(classname, classgrade, account="") {
+    var http = new XMLHttpRequest();
+    var list = "";
+    http.open("POST", "../dist/getDBinfo/getStudentList.php", false);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.onreadystatechange=function() {
+        if(this.readyState === 4 && this.status === 200) {
+            a = http.responseText;
+            list = JSON.parse(a);
+        }
+    };
+
+    http.send("classname="+classname+"&classgrade="+classgrade+"&teacher_account="+account);
+    return list;
+}
+
+function showReviewStudents() {
+    var param = getUrlParam();
+    var userlevel = getUserlevel();
+    var studentlist;
+    if (userlevel == "admin") {
+      studentlist = get_class_students(param["name"], param["grade"], param["account"]);
+    }
+    else {
+      studentlist = get_class_students(param["name"], param["grade"]);
+    }
+    var str = "";
+    for (var i = 0; i < studentlist.length; i++) {
+        str += "<div class='row py-1'>";
+        str += "<button class='btn btn-block btn-outline-info' onclick='showCode(\""+studentlist[i]["Student_ID"]+"\",\""+studentlist[i]["Student_Name"]+"\",\""+studentlist[i]["Student_Num"]+"\");'>"
+        str += studentlist[i]["Student_Num"] + studentlist[i]["Student_Name"];
+        str += "</button></div>";
+    }
+    document.getElementById('studentlist').innerHTML = str;
+}
+
+function showCode(id, name, num) {
+    var code = null;
+    try {
+        code = getCode(id);
+    } catch (e) {
+        xmlcode = null;
+    } 
+    if(code) {
+        var xml = Blockly.Xml.textToDom(code);
+        Blockly.Xml.clearWorkspaceAndLoadFromXml(xml, Blockly.mainWorkspace);
+    }
+    else {
+        Blockly.mainWorkspace.clear();
+    }
+    document.getElementById("studentinfo").innerHTML = "學號: " + num + "&nbsp;&nbsp;姓名: " + name+"&nbsp;&nbsp;";
+    document.getElementById("studentinfo").innerHTML += "<button onclick='deleteSubmit(\""+id+"\")' class='btn btn-danger'>刪除繳交</button>";
+}
+
+function getCode(id) {
+  var ques = getTaskfromUrl();
+  var http = new XMLHttpRequest();
+  var xml = "";
+  http.open("POST", "../dist/getDBinfo/getCode.php", false);
+  http.onreadystatechange=function() {
+    if(this.readyState == 4 && this.status == 200) {
+      xml = http.responseText;
+    }
+  };
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  http.send("id="+id+"&question="+ques);
+  return xml;
+}
+
+function deleteSubmit(id) {
+  var ques = getTaskfromUrl();
+  var http = new XMLHttpRequest();
+  var xml = "";
+  http.open("POST", "../dist/setDBinfo/deleteSubmit.php", false);
+  http.onreadystatechange=function() {
+    if(this.readyState == 4 && this.status == 200) {
+      Blockly.mainWorkspace.clear();
+    }
+  };
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  http.send("id="+id+"&question="+ques);
+  return xml;
+}
+
+function sendJudge(question) {
+  var workspace = Blockly.getMainWorkspace();
+  var pythoncode = Blockly.Python.workspaceToCode(workspace);
+  var http = new XMLHttpRequest();
+  var response="";
+  http.open("POST", "../dist/judge.php", false);
+  http.onreadystatechange=function() {
+      if(this.readyState == 4 && this.status == 200){
+        var result=http.responseText;
+        response = JSON.parse(result);
+      }
+  };
+  http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  http.send("question="+question+"&code="+encodeURIComponent(pythoncode));
+
+  return response;
+}
+
+function judge(casenum) {
+  var ques = getTaskfromUrl();
+  var result = sendJudge(ques);
+  var id = 'case'+(casenum).toString();
+  var btn = document.getElementById(id);
+  if(result.data[casenum-1].result == 0) {
+    btn.className = "btn btn-success";
+    btn.innerHTML = "通過";
+  }
+  else {
+    btn.className = "btn btn-danger feedbackmessage";
+    btn.innerHTML = "未通過";
+  }
+}
+
+function judgeAll() {
+  var ques = getTaskfromUrl();
+  var taskcasenum = localStorage.getItem(ques+"_casenum"); 
+  var result = sendJudge(ques);
+  result.data.sort(function(a, b) {
+    return a.test_case - b.test_case;
+  });
+  var msg = getTaskFeedback(ques);
+  var feedbackmsg = '<ul class="list-group">';
+  var correctfeedbacklist = [], errorfeedbacklist = [];
+  var count = 0;
+  for (var i = 0; i < taskcasenum; i++) {
+    if(result.data[i].result == 0) {
+      count++;
+      correctfeedbacklist.push(msg[i]['Message']);
+    }
+    else {
+      errorfeedbacklist.push(msg[i]['Message']);
+    }
+  }
+  // deal with only correct feedback message and error feedback message
+  var onlycorrect = correctfeedbacklist.filter(x => !errorfeedbacklist.includes(x));
+  onlycorrect = onlycorrect.filter((v, i, a) => a.indexOf(v) === i); // unique the list
+  errorfeedbacklist = errorfeedbacklist.filter((v, i, a) => a.indexOf(v) === i); // unique the list
+  var feedbacklist = [];
+  // add icon(v) and icon(x) for correct/error feedback
+  onlycorrect.forEach(element => {
+    feedbacklist.push('<li class="list-group-item"><i class="fas fa-check" style="color: green;"> '+element+'</i></li>')
+  });
+  errorfeedbacklist.forEach(element => {
+    feedbacklist.push('<li class="list-group-item"><i class="fas fa-times" style="color: red;"> '+element+'</i></li>')
+  });
+  feedbackmsg += feedbacklist.join('');
+  feedbackmsg += '</ul>';
+  var precentage = ((Math.round((count/taskcasenum)*100)*100)/100).toString();
+  str = "";
+  str += '<div class="progress-bar bg-success" role="progressbar" style="width:'+precentage+'%; min-width:3%;" aria-valuenow="'+precentage+'" aria-valuemin="0" aria-valuemax="100">'+precentage+'%</div>';
+  document.getElementById('progressbar').innerHTML = str;
+  var btn = document.getElementById("judge");
+  if (count == taskcasenum) {
+    btn.className = "btn btn-success";
+    btn.innerHTML = "通過所有測試";
+  }
+  else {
+    document.getElementById('feedbackmsg').innerHTML = feedbackmsg;
+    btn.className = "btn btn-danger feedbackmessage";
+    btn.innerHTML = "再試一下";
+
+  }
+}
+
+function getTask(task) {
+    var http = new XMLHttpRequest();
+    var taskinfo = "";
+    http.open("POST", "../dist/getDBinfo/getTask.php", false);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.onreadystatechange=function() {
+        if(this.readyState === 4 && this.status === 200) {
+            var a = http.responseText;
+            taskinfo = JSON.parse(a);
+        }
+    }
+    http.send("task="+task);
+
+    return taskinfo;
+}
+
+function getTaskExample(task) {
+    var http = new XMLHttpRequest();
+    var example = "";
+    http.open("POST", "../dist/getDBinfo/getTaskExample.php", false);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.onreadystatechange=function() {
+        if(this.readyState === 4 && this.status === 200) {
+            var a = http.responseText;
+            example = JSON.parse(a);
+        }
+    }
+    http.send("task="+task);
+
+    return example;
+}
+
+function getTaskFeedback(task) {
+    var http = new XMLHttpRequest();
+    var feedback = "";
+    http.open("POST", "../dist/getDBinfo/getTaskFeedback.php", false);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.onreadystatechange=function() {
+        if(this.readyState === 4 && this.status === 200) {
+            var a = http.responseText;
+            feedback = JSON.parse(a);
+        }
+    }
+    http.send("task="+task);
+
+    return feedback;
+}
+
+function showTask() {
+    var task = getTaskfromUrl();
+    var taskinfo = getTask(task);
+    localStorage.setItem(task+"_level", taskinfo["Task_Level"]);
+    if(taskinfo["Task_Level"].includes("P")) {
+        localStorage.setItem(task+"_casenum", taskinfo["Taskcase_num"]);
+        var example = getTaskExample(task);
+        var str = "";
+        for (var i = 0; i < example.length; i++) {
+            str += "[範例"+ (i+1).toString()+"]<br>輸入：<br>";
+            var testcase = example[i]["Input"];
+            testcase = testcase.split(" ");
+            for (var j = 0; j < testcase.length; j++) {
+                str += testcase[j]+'<br>';
+            }
+            str += "<br>輸出：";
+            str += example[i]["Output"] + "<br><br>";
+        }
+        document.getElementById('examplecontent').innerHTML += str;
+        // showAnimation();
+        str = "";
+        str += '<div class="progress-bar bg-success" role="progressbar" style="min-width: 3%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>';
+        document.getElementById('progressbar').innerHTML = str;
+    }
+    document.getElementById('title').innerHTML = taskinfo["Task_Title_ch"];
+    document.getElementById('contents').innerHTML = taskinfo["Task_Contents"];
+}
